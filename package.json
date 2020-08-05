@@ -11,7 +11,12 @@
     "react": "^16.13.1",
     "react-app-rewire-postcss": "^3.0.2",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-router-dom": "^5.2.0",
+    "axios": "^0.19.2",
+    "antd": "^4.5.0",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.2.3"
   },
   "scripts": {
     "start": "react-app-rewired start",
@@ -35,6 +40,7 @@
   },
   "devDependencies": {
     "customize-cra": "^1.0.0",
-    "react-app-rewired": "^2.1.6"
+    "react-app-rewired": "^2.1.6",
+    "react-router-dom": "^5.2.0"
   }
 }

@@ -1,4 +1,53 @@
-.f {
-  font-size: 50px;
-  color: #fff;
+
+html,body{
+  margin:0;padding:0;height:100%;width:100%;
+
 }
+ul,li,ol,div,h1,h2,h3,h4,h5,h6,div,p{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+// #tab-bar.demo {
+//   display: flex;
+//   flex-direction: column;
+// }
+// #tab-bar .demoName {
+//   height: 40px;
+// }
+// #tab-bar .demo-preview-item .am-tab-bar {
+//   background-color: white;
+// }
+
+
+.content{
+  // height:-webkit-calc(100% - 100px); 
+  // height:-moz-calc(100% - 100px); 
+  // height:calc(100% - 100px); 
+  margin: 5px;
+  // font-size: 20px;
+}
+
+
+
+.footer{
+
+  width: 100%;
+  position:fixed; bottom:0;
+  left:0;
+  bottom: 0;
+
+}
+.tabBarItem{
+ i{
+  font-size: 25px;
+ }
+}
+.tabBarItemSelet{
+  i{
+  color:#0099CC;
+  font-size: 25px;
+  }
+ }
+ 

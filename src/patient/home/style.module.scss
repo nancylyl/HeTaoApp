@@ -1,0 +1,97 @@
+
+body{
+  background-color:#F2F2F2;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  
+}
+.big-box{
+  margin-bottom: 60px;
+.topTitle{
+  text-align: center;
+  font-size: 14px;
+  line-height: 45px;
+  background-color: #fff;
+  width: 100%;
+}
+li{
+  padding: 0;
+  margin: 0;
+}
+.banner{
+  height: 160px;
+  color: '#fff';
+  line-height: 160px;
+  text-align: center;
+  background: #364d79;
+  
+  
+}
+.quick{
+ display: flex;
+width: 100%;
+.bottom{
+width: 100%;
+  span{
+    font-size: 13px !important;
+  }
+  i{
+    font-size: 30px;
+    color: #0099CC
+  }
+}
+}
+
+.title-mydoctor{
+  font-weight: normal;
+  margin: 10px 5px;
+  margin-left: 20px;
+  font-size: 13px;
+}
+
+.my-doctor{
+  background-color: #fff;
+  line-height: 25px;
+  padding-top: 20px;
+  .header{
+    height: 60px;
+    .doctor-head{
+      width: 50px;
+      height: 50px;
+      padding-left:20px;
+      float: left;
+    }
+    span{
+
+       margin-left: 10px;
+      line-height: 25px;
+    }
+   
+  }
+  .header-profile{
+    padding-left: 15px;
+  }
+  .activity{
+    font-size: 13px;
+    div:first-child{
+    color: #0099CC;
+    }
+  }
+  .card-body{
+        .content{
+          display: flex;
+          justify-content: space-between;
+          // margin-top: 10px;
+          padding: 5px 0;
+          border-bottom: 1px solid #ccc;
+        }
+        .content-right{
+          color: #1FD21F;
+          line-height: 50px;
+        }
+      
+    }
+  }
+
+}
