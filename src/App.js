@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './Home'
-import DocIndex from './doc/index'
-import DocHomeIndex from './doc/home/index'
-import PatientIndex from './patient/index'
-import PatientHomeIndex from './patient/home/index'
+import Home from './pages/Home'
+import DocIndex from './pages/Doc'
+import DocHomeIndex from './pages/Doc/Home'
+import PatientIndex from './pages/Patient'
+import PatientHomeIndex from './pages/Patient/Home'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 function App() {
   return (

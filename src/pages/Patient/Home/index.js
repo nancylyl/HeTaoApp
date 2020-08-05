@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styles from './style.module.scss'
-import { Carousel, Button, WhiteSpace, WingBlank, Card, Badge, List } from 'antd-mobile';
+import { Carousel, Button, WhiteSpace, Card, Badge, List } from 'antd-mobile';
 
 
 export default class index extends Component {
@@ -34,7 +34,7 @@ export default class index extends Component {
         <h6 className={styles["title-mydoctor"]}>我的医生</h6>
         <div className={styles["my-doctor"]}>
           <div className={styles["header"]}>
-            <img src={require('../../assets/images/3.png')} className={styles["doctor-head"]} />
+            <img src={require('../../../assets/images/3.png')} className={styles["doctor-head"]} />
             <span>倒霉熊</span>
             <span>主任医生</span>
             <div>

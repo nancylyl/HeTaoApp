@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Tabs, WhiteSpace, TabBar } from 'antd-mobile';
-import styles from '../style.module.scss';
-import '../iconfont/iconfont.css'
-import '../nomralize.min.css';
+import styles from '../../style.module.scss';
 export default class index extends PureComponent {
   constructor(props) {
     super(props);

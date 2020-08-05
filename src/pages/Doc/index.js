@@ -1,34 +1,14 @@
 import React, { PureComponent } from 'react'
 import { Tabs, WhiteSpace, TabBar } from 'antd-mobile';
-import styles from './style.module.scss';
-import { Divider } from 'antd';
-const tabs = [
-  { title: '用户端', key: 1 },
-  { title: '医生端', key: 2 }
-];
-export default class Home extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fullScreen: false,
-    };
-  }
+import styles from '../../style.module.scss';
 
-  renderContent = ((index) => {
-    console.log(index);
-    if (index == 2) {
-      this.props.history.push('./doc')
-    } else {
-      this.props.history.push('./Patient')
-    }
-
-  })
+export default class index extends PureComponent {
   render() {
     return (
       < >
         <div className={styles.content}>
-          我是内容
-        </div>
+          我是内容医生
+      </div>
         <footer className={styles.footer}>
           <TabBar
             unselectedTintColor="#949494"
@@ -37,7 +17,7 @@ export default class Home extends PureComponent {
             tabBarPosition="bottom"
           >
             <TabBar.Item
-              title="用户端"
+              title="首页"
               key="1"
               onPress={() => { this.renderContent(1) }}
               icon={<div style={{
@@ -53,7 +33,7 @@ export default class Home extends PureComponent {
             >
             </TabBar.Item>
             <TabBar.Item
-              title="医生端"
+              title="患者"
               key="2"
               onPress={() => { this.renderContent(2) }}
               icon={<div style={{
