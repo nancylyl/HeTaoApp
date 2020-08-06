@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './home.module.scss'
 import { Carousel, Button, WhiteSpace, Card, Badge, List } from 'antd-mobile';
 import Map from './Map'
@@ -67,8 +68,12 @@ export default class index extends Component {
           ))}
         </Carousel>
         <div className={styles.quick}>
-          <Button icon={<i className={['iconfont icon-jiankangguanli']} />} className={styles.bottom}>病例探讨</Button>
-          <Button icon={<i className={['iconfont icon-liwu']} />} className={styles.bottom}>诊疗活动</Button>
+          <Link to='/discuss'  className={styles.bottom}>
+            <Button icon={<i className={['iconfont icon-jiankangguanli']} />}>病历探讨</Button>
+          </Link>
+          <Link to='/discuss' className={styles.bottom}>
+            <Button icon={<i className={['iconfont icon-liwu']} />}>诊疗活动</Button>
+          </Link>
         </div>
         <div className={styles.dInfo}>
             <div className={styles.img}>

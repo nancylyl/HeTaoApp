@@ -6,6 +6,8 @@ import PatientIndex from './pages/Patient'
 import PatientHomeIndex from './pages/Patient/Home'
 import PLogin from './pages/Patient/Login'
 import Error from './components/Error'
+import Discuss from './pages/Doc/Home/discuss/Discuss'
+
 // import Patient from './pages/Doc/Patient/Patient';
 // import News from './pages/Doc/News/News';
 // import MyInfo from './pages/Doc/MyInfo';
@@ -23,7 +25,7 @@ function App() {
           <Route path="/plogin" exact component={PLogin}></Route>
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route path="/doc" exact render={() => <Redirect to={'/doc/home/index'} />}></Route>
-
+          <Route path="/discuss" component={Discuss}></Route> */} 
           <Route
             path="/doc"
             render={() => (
