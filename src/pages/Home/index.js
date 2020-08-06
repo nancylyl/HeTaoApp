@@ -15,9 +15,9 @@ export default class Home extends PureComponent {
 
   renderContent = ((index) => {
     if (index == 2) {
-      this.props.history.push('./doc')
+      this.props.history.push('/Doc')
     } else {
-      this.props.history.push('./Patient')
+      this.props.history.push('/Patient')
     }
 
   })

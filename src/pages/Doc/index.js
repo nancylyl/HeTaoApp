@@ -1,54 +1,86 @@
 import React, { PureComponent } from 'react'
+import { Redirect } from 'react-router-dom'
 import { Tabs, WhiteSpace, TabBar } from 'antd-mobile';
+import { Link } from 'react-router-dom'
 import styles from '../../style.module.scss';
+import Home from './Home/index';
+import Patient from './Patient/Patient';
+import News from './News/News';
+import MyInfo from './MyInfo/MyInfo';
 
 export default class index extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedTab: 1,
+    }
+  }
+  onPress = (index => {
+    console.log(index);
+    this.setState({
+      selectedTab: index
+    })
+  //  if (index==1) {
+  //   this.props.history.push('/doc/index')
+  //  }else if (index==2) {
+  //   this.props.history.push('/doc/patient')
+  //  }else if (index==3) {
+  //   this.props.history.push('/doc/news')
+  //  }else{
+  //   this.props.history.push('/doc/myInfo')
+  //  }
+
+  })
   render() {
     return (
       < >
-        <div className={styles.content}>
-          我是内容医生
-      </div>
-        <footer className={styles.footer}>
+        <div  className={styles.content}>
+          {this.props.children}
+        </div>
+        <footer className={styles.footer} >
           <TabBar
             unselectedTintColor="#949494"
             tintColor="#33A3F4"
             barTintColor="white"
-            tabBarPosition="bottom"
+            tabBarPosition="top"
           >
             <TabBar.Item
               title="首页"
               key="1"
-              onPress={() => { this.renderContent(1) }}
-              icon={<div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat'
-              }}
-
-              />
-              }
-
-              data-seed="logId"
-            >
+              icon={<div className={styles.tabBarItem} ><i className={['iconfont icon-shouye']}></i></div>}
+              selectedIcon={<div className={styles.tabBarItemSelet} ><i className={['iconfont  icon-shouye']}></i></div>}
+              selected={this.state.selectedTab === 1}
+              onPress={() => { this.onPress(1); }}>
             </TabBar.Item>
             <TabBar.Item
+              icon={<div className={styles.tabBarItem} ><i className={['iconfont icon-huanzhehebing']}></i></div>}
+              selectedIcon={<div className={styles.tabBarItemSelet} ><i className={['iconfont  icon-huanzhehebing']}></i></div>}
               title="患者"
               key="2"
-              onPress={() => { this.renderContent(2) }}
-              icon={<div style={{
-                width: '22px',
-                height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat'
-              }}
 
-              />
-              }
+              selected={this.state.selectedTab === 2}
+              onPress={() => { this.onPress(2); }}>
 
-              data-seed="logId"
-            >
+            </TabBar.Item>
+            <TabBar.Item
+              icon={<div className={styles.tabBarItem} ><i className={['iconfont icon-dkw_xiaoxi']}></i></div>}
+              selectedIcon={<div className={styles.tabBarItemSelet} ><i className={['iconfont icon-dkw_xiaoxi']}></i></div>}
+              title="消息"
+              dot
+              key="3"
+              selected={this.state.selectedTab === 3}
+              onPress={() => { this.onPress(3); }}>
+            </TabBar.Item>
+            <TabBar.Item
+              icon={<div className={styles.tabBarItem} ><i className={['iconfont icon-daohanglan-05']}></i></div>}
+              selectedIcon={<div className={styles.tabBarItemSelet} ><i className={['iconfont icon-daohanglan-05']}></i></div>}
+              title="我的"
+              key="4"
+              selected={this.state.selectedTab === 4}
+              onPress={() => { this.onPress(4); }}>
             </TabBar.Item>
           </TabBar>
+
         </footer >
 
       </>
