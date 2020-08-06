@@ -26,7 +26,7 @@ class index extends PureComponent {
       Toast.info("请输入您的手机号码");
       return
     }
-    if (!(/^1[3456789]\d{9}$/.test(phoneNubmer))) {
+    if (!(/^1[3456789]\d{9}$/.test(rphoneNubmer))) {
       Toast.info("请输入正确的手机号码");
       return
     }
@@ -40,7 +40,7 @@ class index extends PureComponent {
     }
     //#endregion
     userInfo = [{ "phoneNubmer": rphoneNubmer, "password": rpassword }];
-    postUser(userInfo)
+    this.postUser(userInfo)
 
   }
   clickLogin = () => {
@@ -61,7 +61,7 @@ class index extends PureComponent {
     }
     //#endregion
     userInfo = [{ "phoneNubmer": phoneNubmer, "password": password }];
-    postUser(userInfo)
+    this.postUser(userInfo)
   }
   postUser = (userInfo => {
     let url = "";
@@ -88,6 +88,8 @@ class index extends PureComponent {
       })
   })
   getCode = (() => {
+    let userInfo = this.props.form.getFieldsValue()
+    const { rphoneNubmer } = userInfo
 
   })
 
