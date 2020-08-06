@@ -9,7 +9,6 @@ const tabs = [
   { title: "注册", sub: '2' },
 ];
 
-const flag = this.props.flag
 class index extends PureComponent {
   state = {
     hasError: false,
@@ -18,29 +17,29 @@ class index extends PureComponent {
 
 
   clickRegister = () => {
-    let userInfo = this.props.form.getFieldsValue()
-    const { rphoneNubmer, rpassword, code } = userInfo
+    // let userInfo = this.props.form.getFieldsValue()
+    // const { rphoneNubmer, rpassword, code } = userInfo
 
-    //#region 注册验证
-    if (rphoneNubmer == undefined) {
-      Toast.info("请输入您的手机号码");
-      return
-    }
-    if (!(/^1[3456789]\d{9}$/.test(rphoneNubmer))) {
-      Toast.info("请输入正确的手机号码");
-      return
-    }
-    if (rpassword.length < 6 || rpassword.length > 16) {
-      Toast.info("密码必须是6-16位");
-      return
-    }
-    if (code == undefined) {
-      Toast.info("请输入验证码");
-      return
-    }
-    //#endregion
-    userInfo = [{ "phoneNubmer": rphoneNubmer, "password": rpassword }];
-    this.postUser(userInfo)
+    // //#region 注册验证
+    // if (rphoneNubmer == undefined) {
+    //   Toast.info("请输入您的手机号码");
+    //   return
+    // }
+    // if (!(/^1[3456789]\d{9}$/.test(rphoneNubmer))) {
+    //   Toast.info("请输入正确的手机号码");
+    //   return
+    // }
+    // if (rpassword.length < 6 || rpassword.length > 16) {
+    //   Toast.info("密码必须是6-16位");
+    //   return
+    // }
+    // if (code == undefined) {
+    //   Toast.info("请输入验证码");
+    //   return
+    // }
+    // //#endregion
+    // userInfo = [{ "phoneNubmer": rphoneNubmer, "password": rpassword }];
+    // this.postUser(userInfo)
 
   }
   clickLogin = () => {
@@ -63,9 +62,10 @@ class index extends PureComponent {
     userInfo = [{ "phoneNubmer": phoneNubmer, "password": password }];
     this.postUser(userInfo)
   }
-  postUser = (userInfo => {
+  postUser(userInfo) {
     let url = "";
     let goUrl = ""
+    const flag = this.props.flag
     if (flag == 1) {
       url = Api.patients.Login
       goUrl = "/Patient"
@@ -86,7 +86,7 @@ class index extends PureComponent {
       })
       .finally(() => {
       })
-  })
+  }
   getCode = (() => {
     let userInfo = this.props.form.getFieldsValue()
     const { rphoneNubmer } = userInfo
