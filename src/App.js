@@ -6,10 +6,9 @@ import PatientIndex from './pages/Patient'
 import PatientHomeIndex from './pages/Patient/Home'
 import PLogin from './pages/Patient/Login'
 import Error from './components/Error'
-import Dhome from './pages/Doc/Home/index';
-import Patient from './pages/Doc/Patient/Patient';
-import News from './pages/Doc/News/News';
-import MyInfo from './pages/Doc/MyInfo/MyInfo';
+// import Patient from './pages/Doc/Patient/Patient';
+// import News from './pages/Doc/News/News';
+// import MyInfo from './pages/Doc/MyInfo';
 
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
@@ -30,10 +29,9 @@ function App() {
             render={() => (
               <DocIndex>
                 <Route path="/doc/home/index" exact component={DocHomeIndex} />
-
                 {/* <Route path="/doc/patient" component={Patient}></Route>
-                  <Route path="/doc/news" component={News}></Route>
-                  <Route path="/doc/myInfo" component={MyInfo}></Route> */}
+                <Route path="/doc/news" component={News}></Route>
+                <Route path="/doc/myInfo/index" component={MyInfo}></Route> */} 
               </DocIndex>
             )}
           >

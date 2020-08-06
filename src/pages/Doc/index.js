@@ -3,10 +3,6 @@ import { Redirect } from 'react-router-dom'
 import { Tabs, WhiteSpace, TabBar } from 'antd-mobile';
 import { Link } from 'react-router-dom'
 import styles from '../../style.module.scss';
-import Home from './Home/index';
-import Patient from './Patient/Patient';
-import News from './News/News';
-import MyInfo from './MyInfo/MyInfo';
 
 export default class index extends PureComponent {
   constructor(props) {
@@ -21,13 +17,13 @@ export default class index extends PureComponent {
       selectedTab: index
     })
     //  if (index==1) {
-    //   this.props.history.push('/doc/index')
+    //   this.props.history.push('/doc')
     //  }else if (index==2) {
     //   this.props.history.push('/doc/patient')
     //  }else if (index==3) {
     //   this.props.history.push('/doc/news')
     //  }else{
-    //   this.props.history.push('/doc/myInfo')
+    //   this.props.history.push('/doc/myInfo/index')
     //  }
 
   })
