@@ -4,6 +4,7 @@ import DocIndex from './pages/Doc'
 import DocHomeIndex from './pages/Doc/Home'
 import PatientIndex from './pages/Patient'
 import PatientHomeIndex from './pages/Patient/Home'
+import PLogin from './pages/Patient/Login'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 function App() {
   return (
@@ -11,9 +12,9 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact render={() => <Redirect to={'/home'} />}></Route>
-          <Route path="/Patient" exact render={() => <Redirect to={'/Patient/home/index'} />}
-          ></Route>
           <Route path="/home" exact component={Home}></Route>
+          <Route path="/plogin" exact component={PLogin}></Route>
+          <Route path="/Patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route
             exact
             path="/doc"

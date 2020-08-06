@@ -13,6 +13,27 @@
       "unicode_decimal": 58982
     },
     {
+      "icon_id": "553896",
+      "name": "锁",
+      "font_class": "iconset0114",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "643849",
+      "name": "充值",
+      "font_class": "48",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "1112267",
+      "name": "手机",
+      "font_class": "shouji",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
       "icon_id": "1314475",
       "name": "我的",
       "font_class": "daohanglan-05",
@@ -62,11 +83,18 @@
       "unicode_decimal": 58965
     },
     {
+      "icon_id": "4412827",
+      "name": "拨款明细",
+      "font_class": "bokuanmingxi",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
       "icon_id": "4512730",
       "name": "账户资料",
       "font_class": "zhanghuziliao",
-      "unicode": "e62c",
-      "unicode_decimal": 58924
+      "unicode": "e62d",
+      "unicode_decimal": 58925
     },
     {
       "icon_id": "5202083",
@@ -74,6 +102,13 @@
       "font_class": "bingliben",
       "unicode": "e610",
       "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "5203322",
+      "name": "圆圈",
+      "font_class": "yuanquan",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
     },
     {
       "icon_id": "5536245",
@@ -97,11 +132,46 @@
       "unicode_decimal": 59151
     },
     {
+      "icon_id": "8348923",
+      "name": "关于",
+      "font_class": "guanyu",
+      "unicode": "e728",
+      "unicode_decimal": 59176
+    },
+    {
       "icon_id": "10056816",
       "name": "日志",
       "font_class": "rizhi",
       "unicode": "e612",
       "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "10120009",
+      "name": "住房补贴账户",
+      "font_class": "zhufangbutiezhanghu",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "11749468",
+      "name": "电视",
+      "font_class": "dianshi",
+      "unicode": "e696",
+      "unicode_decimal": 59030
+    },
+    {
+      "icon_id": "12670569",
+      "name": "礼物",
+      "font_class": "liwu",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "12683551",
+      "name": "安全",
+      "font_class": "icon_anquan",
+      "unicode": "e614",
+      "unicode_decimal": 58900
     },
     {
       "icon_id": "14113885",
@@ -116,6 +186,13 @@
       "font_class": "50",
       "unicode": "e6a2",
       "unicode_decimal": 59042
+    },
+    {
+      "icon_id": "14560748",
+      "name": "账户切换",
+      "font_class": "zhanghuqiehuan",
+      "unicode": "e632",
+      "unicode_decimal": 58930
     }
   ]
 }

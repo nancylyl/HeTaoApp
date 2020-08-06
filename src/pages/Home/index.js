@@ -14,7 +14,6 @@ export default class Home extends PureComponent {
   }
 
   renderContent = ((index) => {
-    console.log(index);
     if (index == 2) {
       this.props.history.push('./doc')
     } else {
@@ -54,7 +53,7 @@ export default class Home extends PureComponent {
             <TabBar.Item
               title="医生端"
               key="2"
-              onPress={() => { this.renderContent(2) }}
+              onPress={() => { this.renderContent(2) }} no-repeat
               icon={<div style={{
                 width: '22px',
                 height: '22px',
