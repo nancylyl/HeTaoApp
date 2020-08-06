@@ -20,21 +20,21 @@ export default class index extends PureComponent {
     this.setState({
       selectedTab: index
     })
-  //  if (index==1) {
-  //   this.props.history.push('/doc/index')
-  //  }else if (index==2) {
-  //   this.props.history.push('/doc/patient')
-  //  }else if (index==3) {
-  //   this.props.history.push('/doc/news')
-  //  }else{
-  //   this.props.history.push('/doc/myInfo')
-  //  }
+    //  if (index==1) {
+    //   this.props.history.push('/doc/index')
+    //  }else if (index==2) {
+    //   this.props.history.push('/doc/patient')
+    //  }else if (index==3) {
+    //   this.props.history.push('/doc/news')
+    //  }else{
+    //   this.props.history.push('/doc/myInfo')
+    //  }
 
   })
   render() {
     return (
       < >
-        <div  className={styles.content}>
+        <div className={styles.content}>
           {this.props.children}
         </div>
         <footer className={styles.footer} >

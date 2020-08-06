@@ -1,2 +1,7 @@
 
-export default { Login: '/patient/login' }
+export default {
+
+  login: '/patient/login',
+  getCode: '/patient/login'
+
+}

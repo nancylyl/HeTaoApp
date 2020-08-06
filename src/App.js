@@ -22,17 +22,16 @@ function App() {
           <Route path="/home" exact component={Home}></Route>
           <Route path="/error" exact component={Error}></Route>
           <Route path="/plogin" exact component={PLogin}></Route>
-          <Route path="/Patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
-          <Route path="/Doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
-         
+          <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
+          <Route path="/doc" exact render={() => <Redirect to={'/doc/home/index'} />}></Route>
+
           <Route
-            exact
-            path="/Doc"
+            path="/doc"
             render={() => (
               <DocIndex>
-                <Route path="/Doc/home/index" exact component={DocHomeIndex} />
+                <Route path="/doc/home/index" exact component={DocHomeIndex} />
 
-                  {/* <Route path="/doc/patient" component={Patient}></Route>
+                {/* <Route path="/doc/patient" component={Patient}></Route>
                   <Route path="/doc/news" component={News}></Route>
                   <Route path="/doc/myInfo" component={MyInfo}></Route> */}
               </DocIndex>
@@ -40,15 +39,15 @@ function App() {
           >
           </Route>
           <Route
-            path="/Patient"
+            path="/patient"
             render={() => (
               <PatientIndex>
-                <Route path="/Patient/home/index" exact component={PatientHomeIndex} />
-              
+                <Route path="/patient/home/index" exact component={PatientHomeIndex} />
+
               </PatientIndex>
             )}
           ></Route>
-          
+
         </Switch>
       </Router>
     </div>
