@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Result } from 'antd';
+import { Result } from 'antd-mobile';
 
 export default class Error extends Component {
 

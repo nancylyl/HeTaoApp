@@ -1,25 +1,24 @@
-body{
+.bg{
+  // 
   background: url("./image/loginbg.png")  no-repeat  center -40px;
+  height: 100vh;
 
 }
-
-
 .login-box{
-  width: 94%;
   position: fixed;
-  
   top: 35%;
   left: 3%;
+  width: 94%;
    border-bottom-left-radius: 15px;
    border-bottom-right-radius: 15px;
-  height: 300px;
-  border: 1px solid #ccc;
-  box-shadow: 1px 1px 5px rgb(206, 206, 201);
+    height: 300px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 5px rgb(206, 206, 201);
   // border-radius: 15px;contetn-box
   .content-box{  
-  background-color: #fff;
-    padding-top: 20px;
-    margin: 0 auto;
+      background-color: #fff;
+      padding-top: 20px;
+      margin: 0 auto;
   
   .content{
     // background-color: #fff;

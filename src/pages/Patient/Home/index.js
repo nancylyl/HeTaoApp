@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styles from './style.module.scss'
 import { Carousel, Button, WhiteSpace, Card, Badge, List } from 'antd-mobile';
 
-
 export default class index extends Component {
 
   render() {
