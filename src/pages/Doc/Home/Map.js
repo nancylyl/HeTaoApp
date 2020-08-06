@@ -246,7 +246,7 @@ class Map extends PureComponent {
     });
 
     myChart.on('click', params => {
-      this.props.history.push('/Dashboard/map2/' + params.name)
+    //   this.props.history.push('/Dashboard/map2/' + params.name)
     });
   }
 
