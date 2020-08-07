@@ -4,6 +4,9 @@ import DocIndex from './pages/Doc'
 import DocHomeIndex from './pages/Doc/Home'
 import PatientIndex from './pages/Patient'
 import PatientHomeIndex from './pages/Patient/Home'
+import PatientPhoto from './pages/Patient/Photo'
+import PatientBadFeel from './pages/Patient/BadFeel'
+import PForgetPass from './components/Login/forgetPass'
 import PLogin from './pages/Patient/Login'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
@@ -23,6 +26,8 @@ function App() {
           <Route path="/home" exact component={Home}></Route>
           <Route path="/error" exact component={Error}></Route>
           <Route path="/plogin" exact component={PLogin}></Route>
+          <Route path="/PforgetPass" exact component={PForgetPass}></Route>
+
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/discuss" component={Discuss}></Route>
@@ -43,6 +48,9 @@ function App() {
             render={() => (
               <PatientIndex>
                 <Route path="/patient/home/index" exact component={PatientHomeIndex} />
+                <Route path="/patient/photo/index" exact component={PatientPhoto} />
+                <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
+
 
               </PatientIndex>
             )}
