@@ -25,7 +25,7 @@ function App() {
           <Route path="/plogin" exact component={PLogin}></Route>
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route path="/doc" exact render={() => <Redirect to={'/doc/home/index'} />}></Route>
-          <Route path="/discuss" component={Discuss}></Route> */} 
+          <Route path="/discuss" component={Discuss}></Route>
           <Route
             path="/doc"
             render={() => (
@@ -33,7 +33,7 @@ function App() {
                 <Route path="/doc/home/index" exact component={DocHomeIndex} />
                 {/* <Route path="/doc/patient" component={Patient}></Route>
                 <Route path="/doc/news" component={News}></Route>
-                <Route path="/doc/myInfo/index" component={MyInfo}></Route> */} 
+                <Route path="/doc/myInfo/index" component={MyInfo}></Route> */}
               </DocIndex>
             )}
           >
