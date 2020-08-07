@@ -34,6 +34,9 @@ class DiscussDetails extends Component {
             return <p>免费</p>
        }
     }
+    toJion=()=>{
+        this.props.history.push('/doc/jionDiscuss',{data:this.state.details});
+    }
     render() {
         const {details} = this.state
         return (
@@ -58,8 +61,8 @@ class DiscussDetails extends Component {
                     </div>
                 </div>
                 <div className={styles.btns}>
-                    <Button href='/doc/discuss' className={styles.bottom} icon={<i className={['iconfont icon-weibiaoti5']} />}> <p>会议室</p> </Button>
-                    <Button href='/doc/discuss' type="primary" className={styles.bottom} >立即参与</Button>
+                    <Button className={styles.bottom} icon={<i className={['iconfont icon-weibiaoti5']} />}> <p>会议室</p> </Button>
+                    <Button type="primary" className={styles.bottom} onClick={this.toJion}>立即参与</Button>
                 </div>
             </div>
         );

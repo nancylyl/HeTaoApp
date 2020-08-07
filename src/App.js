@@ -11,12 +11,14 @@ import PLogin from './pages/Patient/Login'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
 import DiscussDetails from './pages/Doc/Home/discuss/DiscussDetails'
+import JionDiscuss from './pages/Doc/Home/discuss/JionDiscuss';
 // import Patient from './pages/Doc/Patient/Patient';
 // import News from './pages/Doc/News/News';
 // import MyInfo from './pages/Doc/MyInfo';
 
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+
 function App() {
   return (
     <div className="App">
@@ -32,6 +34,8 @@ function App() {
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/doc/discuss" component={Discuss}></Route>
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
+          <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
+          
           <Route
             path="/doc"
             render={() => (
