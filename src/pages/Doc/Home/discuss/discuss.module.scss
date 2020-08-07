@@ -21,10 +21,7 @@
   .banner{
     margin-top: 45px;
     .img{
-      // height: 160px;
       color: #fff;
-      // line-height: 160px;
-      // text-align: center;
       background: #364d79;
     }
   }
@@ -98,6 +95,10 @@
 }
 
 // ========================探讨详情========================
+
+.right{
+  float: right;
+}
 .content{
   margin-top: 45px;
   div:first-child{
@@ -118,9 +119,6 @@
       margin: 0 auto;
       padding: 20px 10px 10px;
       border-bottom: 1px solid rgb(202, 200, 200);
-    }
-    .right{
-      float: right;
     }
     .explain{
       p{
@@ -162,3 +160,18 @@
 }
 
 // ========================参与探讨========================
+.fText{
+  .smallTitle{
+    margin: 20px 0 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(202, 200, 200);
+  }
+  div:nth-child(3){
+    padding: 10px 0;
+  }
+}
+.jionMan{
+  padding: 20px;
+}
+
+

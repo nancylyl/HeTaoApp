@@ -19,9 +19,6 @@ class DiscussDetails extends Component {
             details: this.props.location.state.data
         })
       }
-    componentDidMount() {
-        console.log(this.state.details);
-      }
     goback=()=>{
         history.goBack();
     }
