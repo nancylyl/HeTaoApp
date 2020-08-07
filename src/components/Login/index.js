@@ -4,6 +4,7 @@ import { Button, Tabs, Toast, InputItem } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import Api from '../../api/index'
 import Axios from '../../util/axios'
+import { Link } from 'react-router-dom';
 const tabs = [
   { title: "登录", sub: '1' },
   { title: "注册", sub: '2' },
@@ -182,6 +183,7 @@ class index extends PureComponent {
                   type="password"
                 ></InputItem>
               </div>
+              <Link className={styles["forgetpass"]} to="/PforgetPass">  忘记密码？</Link>
               <div className={styles.button}>
                 <Button type="primary" onClick={this.clickLogin}>登录</Button>
               </div>
