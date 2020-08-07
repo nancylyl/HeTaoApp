@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styles from './discuss.module.scss'
 import { Icon, Grid } from 'antd-mobile';
-import creatHistory from 'history/createHashHistory'  //返回上一页这段代码
-const history = creatHistory();//返回上一页这段代码
+const createBrowserHistory = require("history").createBrowserHistory;
+const history = createBrowserHistory();//返回上一页这段代码
+
 
 export default class Discuss extends Component {
 
