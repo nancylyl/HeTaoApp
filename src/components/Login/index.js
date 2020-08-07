@@ -69,7 +69,7 @@ class index extends PureComponent {
     userInfo = [{ "phoneNubmer": phoneNubmer, "password": password }];
     this.postUser(userInfo)
   }
-  postUser(userInfo) {
+  postUser (userInfo) {
     const { isClick } = this.state
     if (isClick) {   //如果为true 开始执行
       this.setState({ isClick: false })   //将isClick 变成false，将不会执行处理事件
@@ -157,12 +157,12 @@ class index extends PureComponent {
     }, 1000);
   }
 
-  render() {
+  render () {
     const { getFieldProps } = this.props.form;
     return (
       <div className={styles.bg}>
         <div className={styles["login-box"]}>
-          <Tabs tabs={tabs} initialPage={0} >
+          <Tabs tabs={tabs} initialPage={0} className={styles.tabs} >
             <div className={styles["content-box"]}>
               <div className={styles.content}>
                 <span className={['iconfont  icon-shouji']}></span>

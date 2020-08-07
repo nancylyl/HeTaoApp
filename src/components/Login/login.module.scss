@@ -11,7 +11,7 @@
   width: 94%;
    border-bottom-left-radius: 15px;
    border-bottom-right-radius: 15px;
-    height: 300px;
+    height: 360px;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 5px rgb(206, 206, 201);
   // border-radius: 15px;contetn-box
@@ -40,9 +40,8 @@
                   // width: 90px;
                   height: 30px;
                   width: 96px;
-                  margin-top: 10px;
+                  margin-top: 8px;
                   margin-right: 10px;
-                  margin-bottom: 0px;
                   span{
                     font-size: 12px;
                     line-height: 30px;
@@ -59,9 +58,19 @@
             display: inline-block;
             text-align: right;
             line-height: 20px;
-            margin-top: 10px;
+            padding-top: 10px;
             width: 95%;
             color: #000;
     }
-      
+    .tabs{
+      height: 30px !important;
+      :global{
+      .am-tabs-default-bar-tab {
+        height: 20px !important;
+        line-height: 20px !important;
+        font-size: 14px;
+        
+      }
+    }
+  }
 }
