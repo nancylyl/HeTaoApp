@@ -13,7 +13,7 @@ import Discuss from './pages/Doc/Home/discuss/Discuss'
 // import MyInfo from './pages/Doc/MyInfo';
 
 
-import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 function App() {
   return (
     <div className="App">
