@@ -6,10 +6,11 @@ import PatientIndex from './pages/Patient'
 import PatientHomeIndex from './pages/Patient/Home'
 import PLogin from './pages/Patient/Login'
 import Error from './components/Error'
-import Dhome from './pages/Doc/Home/index';
-import Patient from './pages/Doc/Patient/Patient';
-import News from './pages/Doc/News/News';
-import MyInfo from './pages/Doc/MyInfo/MyInfo';
+import Discuss from './pages/Doc/Home/discuss/Discuss'
+
+// import Patient from './pages/Doc/Patient/Patient';
+// import News from './pages/Doc/News/News';
+// import MyInfo from './pages/Doc/MyInfo';
 
 
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
@@ -24,16 +25,15 @@ function App() {
           <Route path="/plogin" exact component={PLogin}></Route>
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route path="/doc" exact render={() => <Redirect to={'/doc/home/index'} />}></Route>
-
+          <Route path="/discuss" component={Discuss}></Route> */} 
           <Route
             path="/doc"
             render={() => (
               <DocIndex>
                 <Route path="/doc/home/index" exact component={DocHomeIndex} />
-
                 {/* <Route path="/doc/patient" component={Patient}></Route>
-                  <Route path="/doc/news" component={News}></Route>
-                  <Route path="/doc/myInfo" component={MyInfo}></Route> */}
+                <Route path="/doc/news" component={News}></Route>
+                <Route path="/doc/myInfo/index" component={MyInfo}></Route> */} 
               </DocIndex>
             )}
           >
