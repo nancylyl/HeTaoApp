@@ -7,7 +7,7 @@ import PatientHomeIndex from './pages/Patient/Home'
 import PLogin from './pages/Patient/Login'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
-
+import DiscussDetails from './pages/Doc/Home/discuss/DiscussDetails'
 // import Patient from './pages/Doc/Patient/Patient';
 // import News from './pages/Doc/News/News';
 // import MyInfo from './pages/Doc/MyInfo';
@@ -26,6 +26,7 @@ function App() {
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/doc/discuss" component={Discuss}></Route>
+          <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route
             path="/doc"
             render={() => (

@@ -30,8 +30,8 @@ class Map extends PureComponent {
       url: url
     })
       .then((res) => {
-        console.log(res);
-        const data = res.data.data;/*  */
+        // console.log(res);
+        const data = res.data.data;
         this.initalECharts(data);
       })
       .finally(() => {
