@@ -24,7 +24,7 @@ function App() {
           <Route path="/error" exact component={Error}></Route>
           <Route path="/plogin" exact component={PLogin}></Route>
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
-          <Route path="/doc" exact render={() => <Redirect to={'/doc/home/index'} />}></Route>
+          <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/discuss" component={Discuss}></Route>
           <Route
             path="/doc"
