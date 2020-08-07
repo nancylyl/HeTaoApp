@@ -1,7 +1,7 @@
 
 export default {
 
-  login: '/patient/login',
+  login: '/api/patient/login',
   getCode: '/patient/login'
 
 }

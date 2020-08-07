@@ -12,7 +12,7 @@ import News from './pages/Doc/News/News';
 import MyInfo from './pages/Doc/MyInfo/MyInfo';
 
 
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 function App() {
   return (
     <div className="App">

@@ -88,10 +88,10 @@ class index extends PureComponent {
       }
       console.log(userInfo)
       Axios({
-        url: url,
+        url: Api.patients.login,
         method: 'POST',
-        isDev: 1,
-        data: JSON.stringify(userInfo)
+        // isDev: 1,
+        data: { userInfo }
 
       })
         .then((res) => {
