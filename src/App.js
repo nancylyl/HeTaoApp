@@ -30,7 +30,7 @@ function App() {
 
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
-          <Route path="/discuss" component={Discuss}></Route>
+          <Route path="/doc/discuss" component={Discuss}></Route>
           <Route
             path="/doc"
             render={() => (

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import styles from './home.module.scss'
-import { Carousel, Button, WhiteSpace, Card, Badge, List } from 'antd-mobile';
+import { Carousel, Button } from 'antd-mobile';
 import Map from './Map'
+
+
 export default class index extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +22,6 @@ export default class index extends Component {
           title: 4,
         }
       ],
-      imgHeight: 176,
       docInfo: {
         name: "张三",
         avatar: '3.png',
@@ -50,10 +50,10 @@ export default class index extends Component {
             <a
               key={val}
               href="http://www.alipay.com"
-              style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+              style={{ display: 'inline-block', width: '100%', height: '40vw' }}
               className={styles.img}
             >
-              <h3>{val.title}</h3>
+              {val.title}
               <img
                 src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
                 alt=""
@@ -68,12 +68,8 @@ export default class index extends Component {
           ))}
         </Carousel>
         <div className={styles.quick}>
-          <Link to='/discuss'  className={styles.bottom}>
-            <Button icon={<i className={['iconfont icon-jiankangguanli']} />}>病历探讨</Button>
-          </Link>
-          <Link to='/discuss' className={styles.bottom}>
-            <Button icon={<i className={['iconfont icon-liwu']} />}>诊疗活动</Button>
-          </Link>
+          <Button href='/doc/discuss' className={styles.bottom} icon={<i className={['iconfont icon-jiankangguanli']} />}>病历探讨</Button>
+          <Button href='/doc/discuss' className={styles.bottom} icon={<i className={['iconfont icon-liwu']} />}>诊疗活动</Button>
         </div>
         <div className={styles.dInfo}>
             <div className={styles.img}>
