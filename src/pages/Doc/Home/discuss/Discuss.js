@@ -110,14 +110,17 @@ export default class Discuss extends Component {
                         </a>
                     ))}
                 </Carousel>
-                {this.state.loaded&&<Tabs tabs={this.state.tabs}
-                        initialPage={'t1'}
-                        page={'t1'}
-                        page={this.state.page}
-                        className={styles.tab}
-                    >
-                         {this.renderContent}  
+                <div className={styles.tabs}>
+                    {this.state.loaded&&<Tabs tabs={this.state.tabs}
+                            initialPage={'t1'}
+                            page={'t1'}
+                            page={this.state.page}
+                            
+                        >
+                            {this.renderContent}  
                     </Tabs>}
+                </div>
+                
 
             </div>
         )

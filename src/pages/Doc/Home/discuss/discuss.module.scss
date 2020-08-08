@@ -21,10 +21,7 @@
   .banner{
     margin-top: 45px;
     .img{
-      // height: 160px;
       color: #fff;
-      // line-height: 160px;
-      // text-align: center;
       background: #364d79;
     }
   }
@@ -40,27 +37,30 @@
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
-:global{
-  .am-tabs-default-bar-content{
-    border-bottom: 1px solid rgb(194, 193, 193);
-  }
-  .am-tabs-default-bar-tab {
-    height: 90px;
-    line-height: 90px;
-    font-size: 14px;
-    
-  }
-  .am-tabs-default-bar-tab-active {
-    font-weight: 700;
-    color: black;
-    div{
-      background-color: rgb(184, 183, 180);
+.tabs{
+  :global{
+    .am-tabs-default-bar-content{
+      border-bottom: 1px solid rgb(194, 193, 193);
+    }
+    .am-tabs-default-bar-tab {
+      height: 90px;
+      line-height: 90px;
+      font-size: 14px;
+      
+    }
+    .am-tabs-default-bar-tab-active {
+      font-weight: 700;
+      color: black;
+      div{
+        background-color: rgb(184, 183, 180);
+      }
+    }
+    .am-tabs-default-bar-underline{
+      border: none;
     }
   }
-  .am-tabs-default-bar-underline{
-    border: none;
-  }
 }
+
 .listBox{
   width: 100%;
 }
@@ -95,6 +95,10 @@
 }
 
 // ========================探讨详情========================
+
+.right{
+  float: right;
+}
 .content{
   margin-top: 45px;
   div:first-child{
@@ -115,9 +119,6 @@
       margin: 0 auto;
       padding: 20px 10px 10px;
       border-bottom: 1px solid rgb(202, 200, 200);
-    }
-    .right{
-      float: right;
     }
     .explain{
       p{
@@ -157,3 +158,20 @@
   }
  }
 }
+
+// ========================参与探讨========================
+.fText{
+  .smallTitle{
+    margin: 20px 0 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(202, 200, 200);
+  }
+  div:nth-child(3){
+    padding: 10px 0;
+  }
+}
+.jionMan{
+  padding: 20px;
+}
+
+
