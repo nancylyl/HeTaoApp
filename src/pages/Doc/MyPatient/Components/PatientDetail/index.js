@@ -7,7 +7,7 @@ export default class index extends PureComponent {
         <div className={styles.header}>
           <div>d
             
-            <img src={require('../../../../assets/images/3.png')} className={styles["doctor-head"]} />
+            {/* <img src={require('../../../../assets/images/3.png')} className={styles["doctor-head"]} /> */}
           </div>
         </div>
       </div>
