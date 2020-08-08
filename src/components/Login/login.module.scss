@@ -1,6 +1,7 @@
 .bg{
   // 
   background: url("./image/loginbg.png")  no-repeat  center -40px;
+  // background-size: cover;
   height: 100vh;
 
 }
@@ -9,12 +10,14 @@
   top: 35%;
   left: 3%;
   width: 94%;
-   border-bottom-left-radius: 15px;
-   border-bottom-right-radius: 15px;
+  // border-radius: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
     height: 360px;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 5px rgb(206, 206, 201);
-  // border-radius: 15px;contetn-box
+  // border-radius: 15px;contetn-boxhidden;
   .content-box{  
       background-color: #fff;
       padding-top: 20px;
@@ -40,7 +43,7 @@
                   // width: 90px;
                   height: 30px;
                   width: 96px;
-                  margin-top: 8px;
+                  margin-top: 6px;
                   margin-right: 10px;
                   span{
                     font-size: 12px;

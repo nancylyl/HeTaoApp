@@ -2,14 +2,26 @@ import React, { PureComponent } from 'react'
 import { List, Flex, Checkbox, SearchBar } from 'antd-mobile';
 import _ from 'lodash';
 import styles from './style.module.scss';
-import Drawer from '../../../../../components/Drawer';
+import Drawer from 'components/Drawer';
 const { Item } = List;
 const data = require('./data.json');
 const { CheckboxItem } = Checkbox;
 
 export default class MedicinesList extends PureComponent {
   state = {
-    data: _.cloneDeep(data)
+    data: _.cloneDeep(data),
+    selectedCache: null,
+  }
+
+  componentDidUpdate (prevProps) {
+    const { visible, selected } = this.props;
+    if (!prevProps.visible && visible) {
+      console.log('open')
+      // 打开时
+      this.setState({
+        selectedCache: _.cloneDeep(selected),
+      })
+    }
   }
 
   onChange = (item, checked) => {
@@ -60,15 +72,21 @@ export default class MedicinesList extends PureComponent {
     })
   }
 
+  onClose = () => {
+    const { onClose, onChange } = this.props;
+    onChange(this.state.selectedCache);
+    onClose && onClose();
+  }
+
 
   render () {
     const { data } = this.state;
-    const { visible, onClose, onOk, selected } = this.props
+    const { visible, onOk, selected } = this.props
 
     return <Drawer
       visible={visible}
       title='选择药物'
-      onClose={onClose}
+      onClose={this.onClose}
       onOk={onOk}
     >
       <SearchBar

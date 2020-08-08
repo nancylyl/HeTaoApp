@@ -4,8 +4,8 @@ import { Tabs, WhiteSpace, TabBar } from 'antd-mobile';
 import { Link } from 'react-router-dom'
 import styles from '../../style.module.scss';
 
-
-class Index extends PureComponent {
+@withRouter
+export default class index extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -85,5 +85,3 @@ class Index extends PureComponent {
     )
   }
 }
-
-export default withRouter(Index)

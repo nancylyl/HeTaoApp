@@ -9,7 +9,9 @@ import _ from 'lodash';
 import MedicinesList from './Components/MedicinesList';
 const CheckboxItem = Checkbox.CheckboxItem;
 const AllMediaListData = require('./Components/MedicinesList/data.json');
-class index extends PureComponent {
+
+@createForm()
+export default class index extends PureComponent {
   state = {
     files: [],
     chooseList: [], // 选中的药物
@@ -19,21 +21,6 @@ class index extends PureComponent {
     // data: _.cloneDeep(olddata)
   };
 
-  // onChange = (val) => {
-  //   const { data } = this.state;
-  //   let newData = [];
-  //   for (let i = 0; i < data.length; i++) {
-  //     if (data[i].value == val) {
-  //       data[i].isCheck = !data[i].isCheck
-  //     }
-  //     newData.push(data[i])
-  //   }
-
-  //   this.setState({
-  //     data: newData
-  //   })
-
-  // }
   onSubmit = (() => {
 
     let recordlog = this.props.form.getFieldsValue()
@@ -88,8 +75,6 @@ class index extends PureComponent {
   }
 
   onMedicinesListOk = () => {
-    const { chooseList } = this.state;
-    console.log(chooseList)
     this.onMedicinesListVisible(false);
   }
 
@@ -182,5 +167,3 @@ class index extends PureComponent {
   }
 }
 
-const BasicInputExampleWrapper = createForm()(index);
-export default BasicInputExampleWrapper;
