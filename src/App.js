@@ -6,18 +6,23 @@ import PatientIndex from './pages/Patient'
 import PatientHomeIndex from './pages/Patient/Home'
 import PatientPhoto from './pages/Patient/Photo'
 import PatientBadFeel from './pages/Patient/BadFeel'
+
 import PForgetPass from './components/Login/forgetPass'
 import PLogin from './pages/Patient/Login'
+import PRecordLog from './pages/Patient/RecordLog'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
 import DiscussDetails from './pages/Doc/Home/discuss/DiscussDetails'
+
+import DocMyPatient from './pages/Doc/MyPatient/'
+import DocMyPatientDetail from './pages/Doc/MyPatient/Components/PatientDetail'
 // import Patient from './pages/Doc/Patient/Patient';
 // import News from './pages/Doc/News/News';
 // import MyInfo from './pages/Doc/MyInfo';
 
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-function App() {
+function App () {
   return (
     <div className="App">
       <Router>
@@ -26,12 +31,15 @@ function App() {
           <Route path="/home" exact component={Home}></Route>
           <Route path="/error" exact component={Error}></Route>
           <Route path="/plogin" exact component={PLogin}></Route>
-          <Route path="/PforgetPass" exact component={PForgetPass}></Route>
+          <Route path="/PforgetPass/:flag" exact component={PForgetPass}></Route>
+
 
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/doc/discuss" component={Discuss}></Route>
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
+
+
           <Route
             path="/doc"
             render={() => (
@@ -40,6 +48,9 @@ function App() {
                 {/* <Route path="/doc/patient" component={Patient}></Route>
                 <Route path="/doc/news" component={News}></Route>
                 <Route path="/doc/myInfo/index" component={MyInfo}></Route> */}
+
+                <Route path="/doc/home/mypatient" exact component={DocMyPatient} />
+                <Route path="/doc/home/mypatientdetail" exact component={DocMyPatientDetail} />
               </DocIndex>
             )}
           >
@@ -51,7 +62,7 @@ function App() {
                 <Route path="/patient/home/index" exact component={PatientHomeIndex} />
                 <Route path="/patient/photo/index" exact component={PatientPhoto} />
                 <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
-
+                <Route path="/patient/recordLog/index" exact component={PRecordLog} />
 
               </PatientIndex>
             )}

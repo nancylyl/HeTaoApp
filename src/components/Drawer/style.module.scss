@@ -1,0 +1,33 @@
+.drawer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  background-color: #FFF;
+}
+
+.header {
+  height: 36px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  color: #666;
+  align-items: center;
+}
+
+.back {
+  margin: 0 10px;
+}
+
+.title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 16px;
+}
+
+.ok {
+  color: #0099CC;
+  margin: 0 10px;
+  font-size: 14px;
+}

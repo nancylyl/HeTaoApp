@@ -30,6 +30,10 @@ class index extends PureComponent {
       Toast.info("请输入正确的手机号码");
       return
     }
+    if (rpassword == undefined) {
+      Toast.info("密码不能为空");
+      return
+    }
     if (rpassword.length < 6 || rpassword.length > 16) {
       Toast.info("密码必须是6-16位");
       return
@@ -61,6 +65,10 @@ class index extends PureComponent {
     //   Toast.info("请输入正确的手机号码");
     //   return
     // }
+    if (password == undefined) {
+      Toast.info("密码不能为空");
+      return
+    }
     if (password.length < 6 || password.length > 16) {
       Toast.info("密码必须是6-16位");
       return
@@ -82,7 +90,7 @@ class index extends PureComponent {
     if (isClick) {
       let url = "";
       let goUrl = ""
-      const flag = this.props.flag
+      const flag = this.props.match.params.flag
       if (flag == 1) {
         url = Api.patients.Login
         goUrl = "/Patient"
@@ -97,7 +105,7 @@ class index extends PureComponent {
       })
         .then((res) => {
           console.log(res)
-          Toast.info("添加成功！");
+          Toast.info("修改成功！");
           // window.location.href = "/Patient/home/index"
 
         })
@@ -183,7 +191,7 @@ class index extends PureComponent {
                   type="password"
                 ></InputItem>
               </div>
-              <Link className={styles["forgetpass"]} to="/PforgetPass">  忘记密码？</Link>
+              <Link className={styles["forgetpass"]} to="/PforgetPass/1">  忘记密码？</Link>
               <div className={styles.button}>
                 <Button type="primary" onClick={this.clickLogin}>登录</Button>
               </div>
