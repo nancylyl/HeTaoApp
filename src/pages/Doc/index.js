@@ -30,7 +30,7 @@ export default class index extends PureComponent {
   })
   render () {
     return (
-      < >
+      <div >
         <div className={styles.content}>
           {this.props.children}
         </div>
@@ -80,7 +80,7 @@ export default class index extends PureComponent {
 
         </footer >
 
-      </>
+      </div>
 
     )
   }
