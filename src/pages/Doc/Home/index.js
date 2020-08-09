@@ -69,7 +69,7 @@ export default class index extends Component {
         </Carousel>
         <div className={styles.quick}>
           <Button href='/doc/discuss' className={styles.bottom} icon={<i className={['iconfont icon-jiankangguanli']} />}>病历探讨</Button>
-          <Button href='/doc/discuss' className={styles.bottom} icon={<i className={['iconfont icon-liwu']} />}>诊疗活动</Button>
+          <Button href='/doc/activities' className={styles.bottom} icon={<i className={['iconfont icon-liwu']} />}>诊疗活动</Button>
         </div>
         <div className={styles.dInfo}>
             <div className={styles.img}>
