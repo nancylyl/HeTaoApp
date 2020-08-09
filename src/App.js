@@ -12,13 +12,13 @@ import PLogin from './pages/Patient/Login'
 import PRecordLog from './pages/Patient/RecordLog'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
-<<<<<<< HEAD
+
 import activities from './pages/Doc/Home/activities/activities'
 
 import Patient from './pages/Doc/Patient/Patient';
 import News from './pages/Doc/News/News';
 import MyInfo from './pages/Doc/MyInfo';
-=======
+
 import DiscussDetails from './pages/Doc/Home/discuss/DiscussDetails'
 
 import DocMyPatient from './pages/Doc/MyPatient/'
@@ -33,7 +33,7 @@ import ChooseDoc from './pages/Doc/Home/startDIscuss/ChooseDoc';
 // import Patient from './pages/Doc/Patient/Patient';
 // import News from './pages/Doc/News/News';
 // import MyInfo from './pages/Doc/MyInfo';
->>>>>>> abd2ae15efef3991b70884e67f8f8b64c0f4b09e
+
 
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
@@ -56,14 +56,10 @@ function App () {
           <Route path="/doc/activities" component={activities}></Route>
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
-<<<<<<< HEAD
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
           <Route path="/doc/chooseDoc" component={ChooseDoc}></Route>
           
           
-=======
-
->>>>>>> 4878486240d2533f889161932bfc78b076e12658
           <Route
             path="/doc"
             render={() => (
