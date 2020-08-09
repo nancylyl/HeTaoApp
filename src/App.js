@@ -5,6 +5,7 @@ import DocHomeIndex from './pages/Doc/Home'
 import PatientIndex from './pages/Patient'
 import PatientHomeIndex from './pages/Patient/Home'
 import PLogin from './pages/Patient/Login'
+import medicalRecord from './pages/Patient/medicalRecord/medicalRecord'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
 
@@ -43,7 +44,7 @@ function App() {
             render={() => (
               <PatientIndex>
                 <Route path="/patient/home/index" exact component={PatientHomeIndex} />
-
+                <Route path="/patient/medicalRecord" component={medicalRecord}></Route>
               </PatientIndex>
             )}
           ></Route>
