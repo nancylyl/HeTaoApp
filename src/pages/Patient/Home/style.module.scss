@@ -27,10 +27,12 @@ li{
   
 }
 .quick{
- display: flex;
+display: flex;
 width: 100%;
+margin-top: 5px;
 .bottom{
-width: 100%;
+ width: 49%;
+ margin-right: 5px;
   span{
     font-size: 13px !important;
   }
@@ -88,8 +90,23 @@ width: 100%;
           color: #1FD21F;
           line-height: 50px;
         }
-      
+        .content-right1{
+          color: red;
+          line-height: 50px;
+        }
     }
+   
   }
 
+}
+.show-model{
+  font-size: 20px;
+  color: #000;
+ }
+.show-model-botton{
+  display: flex;
+ justify-content: center;
+ div{
+   width: 40%;
+ }
 }

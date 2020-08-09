@@ -4,6 +4,7 @@ import { Button, Tabs, Toast, InputItem } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import Api from '../../api/index'
 import Axios from '../../util/axios'
+import { Link } from 'react-router-dom';
 const tabs = [
   { title: "登录", sub: '1' },
   { title: "注册", sub: '2' },
@@ -27,6 +28,10 @@ class index extends PureComponent {
     }
     if (!(/^1[3456789]\d{9}$/.test(rphoneNubmer))) {
       Toast.info("请输入正确的手机号码");
+      return
+    }
+    if (rpassword == undefined) {
+      Toast.info("密码不能为空");
       return
     }
     if (rpassword.length < 6 || rpassword.length > 16) {
@@ -60,6 +65,10 @@ class index extends PureComponent {
     //   Toast.info("请输入正确的手机号码");
     //   return
     // }
+    if (password == undefined) {
+      Toast.info("密码不能为空");
+      return
+    }
     if (password.length < 6 || password.length > 16) {
       Toast.info("密码必须是6-16位");
       return
@@ -68,7 +77,7 @@ class index extends PureComponent {
     userInfo = [{ "phoneNubmer": phoneNubmer, "password": password }];
     this.postUser(userInfo)
   }
-  postUser(userInfo) {
+  postUser (userInfo) {
     const { isClick } = this.state
     if (isClick) {   //如果为true 开始执行
       this.setState({ isClick: false })   //将isClick 变成false，将不会执行处理事件
@@ -81,7 +90,7 @@ class index extends PureComponent {
     if (isClick) {
       let url = "";
       let goUrl = ""
-      const flag = this.props.flag
+      const flag = this.props.match.params.flag
       if (flag == 1) {
         url = Api.patients.Login
         goUrl = "/Patient"
@@ -96,7 +105,7 @@ class index extends PureComponent {
       })
         .then((res) => {
           console.log(res)
-          Toast.info("添加成功！");
+          Toast.info("修改成功！");
           // window.location.href = "/Patient/home/index"
 
         })
@@ -156,12 +165,12 @@ class index extends PureComponent {
     }, 1000);
   }
 
-  render() {
+  render () {
     const { getFieldProps } = this.props.form;
     return (
       <div className={styles.bg}>
         <div className={styles["login-box"]}>
-          <Tabs tabs={tabs} initialPage={0} >
+          <Tabs tabs={tabs} initialPage={0} className={styles.tabs} >
             <div className={styles["content-box"]}>
               <div className={styles.content}>
                 <span className={['iconfont  icon-shouji']}></span>
@@ -182,6 +191,7 @@ class index extends PureComponent {
                   type="password"
                 ></InputItem>
               </div>
+              <Link className={styles["forgetpass"]} to="/PforgetPass/1">  忘记密码？</Link>
               <div className={styles.button}>
                 <Button type="primary" onClick={this.clickLogin}>登录</Button>
               </div>

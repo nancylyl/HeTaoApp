@@ -23,7 +23,7 @@ export default class Home extends PureComponent {
   })
   render() {
     return (
-      < >
+      <div >
         <div className={styles.content}>
           我是内容
         </div>
@@ -70,7 +70,7 @@ export default class Home extends PureComponent {
 
         </footer >
 
-      </>
+      </div>
 
     )
   }

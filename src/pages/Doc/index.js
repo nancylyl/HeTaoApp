@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import { Tabs, WhiteSpace, TabBar } from 'antd-mobile';
 import { Link } from 'react-router-dom'
 import styles from '../../style.module.scss';
 
+@withRouter
 export default class index extends PureComponent {
   constructor(props) {
     super(props);
@@ -12,24 +13,24 @@ export default class index extends PureComponent {
     }
   }
   onPress = (index => {
-    console.log(index);
+    const { history } = this.props;
+    console.log(history)
     this.setState({
       selectedTab: index
     })
-    //  if (index==1) {
-    //   this.props.history.push('/doc')
-    //  }else if (index==2) {
-    //   this.props.history.push('/doc/patient')
-    //  }else if (index==3) {
-    //   this.props.history.push('/doc/news')
-    //  }else{
-    //   this.props.history.push('/doc/myInfo/index')
-    //  }
-
+    if (index == 1) {
+      history.push('/doc')
+    } else if (index == 2) {
+      history.push('/doc/home/mypatient')
+    } else if (index == 3) {
+      history.push('/doc/news')
+    } else {
+      history.push('/doc/myInfo/index')
+    }
   })
-  render() {
+  render () {
     return (
-      < >
+      <div >
         <div className={styles.content}>
           {this.props.children}
         </div>
@@ -79,7 +80,7 @@ export default class index extends PureComponent {
 
         </footer >
 
-      </>
+      </div>
 
     )
   }

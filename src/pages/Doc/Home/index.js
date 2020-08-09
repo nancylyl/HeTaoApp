@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import styles from './home.module.scss'
 import { Carousel, Button } from 'antd-mobile';
 import Map from './Map'
+
+
 export default class index extends Component {
   constructor(props) {
+    
     super(props);
     this.state = {
       data: [
@@ -21,7 +23,6 @@ export default class index extends Component {
           title: 4,
         }
       ],
-      imgHeight: 176,
       docInfo: {
         name: "张三",
         avatar: '3.png',
@@ -33,6 +34,7 @@ export default class index extends Component {
       }
     }
   }
+
   render() {
     const {docInfo} = this.state
     return (
@@ -42,15 +44,15 @@ export default class index extends Component {
         <Carousel
           autoplay
           // infinite
-          beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-          afterChange={index => console.log('slide to', index)}
+          // beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+          // afterChange={index => console.log('slide to', index)}
           className={styles.banner}
         >
           {this.state.data.map(val => (
             <a
               key={val}
               href="http://www.alipay.com"
-              style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+              style={{ display: 'inline-block', width: '100%', height: '40vw' }}
               className={styles.img}
             >
               {val.title}
@@ -68,8 +70,8 @@ export default class index extends Component {
           ))}
         </Carousel>
         <div className={styles.quick}>
-          <Button href='/discuss' className={styles.bottom} icon={<i className={['iconfont icon-jiankangguanli']} />}>病历探讨</Button>
-          <Button href='/discuss' className={styles.bottom} icon={<i className={['iconfont icon-liwu']} />}>诊疗活动</Button>
+          <Button href='/doc/discuss' className={styles.bottom} icon={<i className={['iconfont icon-jiankangguanli']} />}>病历探讨</Button>
+          <Button href='/doc/activities' className={styles.bottom} icon={<i className={['iconfont icon-liwu']} />}>诊疗活动</Button>
         </div>
         <div className={styles.dInfo}>
             <div className={styles.img}>

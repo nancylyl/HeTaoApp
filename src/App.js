@@ -4,18 +4,23 @@ import DocIndex from './pages/Doc'
 import DocHomeIndex from './pages/Doc/Home'
 import PatientIndex from './pages/Patient'
 import PatientHomeIndex from './pages/Patient/Home'
+import PatientPhoto from './pages/Patient/Photo'
+import PatientBadFeel from './pages/Patient/BadFeel'
+
+import PForgetPass from './components/Login/forgetPass'
 import PLogin from './pages/Patient/Login'
 import medicalRecord from './pages/Patient/medicalRecord/medicalRecord'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
+import activities from './pages/Doc/Home/activities/activities'
 
-// import Patient from './pages/Doc/Patient/Patient';
-// import News from './pages/Doc/News/News';
-// import MyInfo from './pages/Doc/MyInfo';
+import Patient from './pages/Doc/Patient/Patient';
+import News from './pages/Doc/News/News';
+import MyInfo from './pages/Doc/MyInfo';
 
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-function App() {
+function App () {
   return (
     <div className="App">
       <Router>
@@ -24,17 +29,21 @@ function App() {
           <Route path="/home" exact component={Home}></Route>
           <Route path="/error" exact component={Error}></Route>
           <Route path="/plogin" exact component={PLogin}></Route>
+          <Route path="/PforgetPass/:flag" exact component={PForgetPass}></Route>
+
+
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
-          <Route path="/discuss" component={Discuss}></Route>
+          <Route path="/doc/discuss" component={Discuss}></Route>
+          <Route path="/doc/activities" component={activities}></Route>
           <Route
             path="/doc"
             render={() => (
               <DocIndex>
                 <Route path="/doc/home/index" exact component={DocHomeIndex} />
-                {/* <Route path="/doc/patient" component={Patient}></Route>
+                <Route path="/doc/patient" component={Patient}></Route>
                 <Route path="/doc/news" component={News}></Route>
-                <Route path="/doc/myInfo/index" component={MyInfo}></Route> */}
+                <Route path="/doc/myInfo/index" component={MyInfo}></Route>
               </DocIndex>
             )}
           >
