@@ -1,3 +1,4 @@
+// ========================病历探讨========================
 .bigBox{
     margin-bottom: 60px;
   .topTitle{
@@ -5,6 +6,7 @@
     font-size: 14px;
     line-height: 45px;
     background-color: #fff;
+    border-bottom: 1px solid rgb(175, 172, 172);
     width: 100%;
     position:fixed; 
     top:0;
@@ -19,10 +21,7 @@
   .banner{
     margin-top: 45px;
     .img{
-      // height: 160px;
       color: #fff;
-      // line-height: 160px;
-      // text-align: center;
       background: #364d79;
     }
   }
@@ -38,32 +37,34 @@
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
-:global{
-  .am-tabs-default-bar-content{
-    border-bottom: 1px solid rgb(12, 11, 11);
-  }
-  .am-tabs-default-bar-tab {
-    height: 90px;
-    line-height: 90px;
-    font-size: 14px;
-    
-  }
-  .am-tabs-default-bar-tab-active {
-    font-weight: 700;
-    color: black;
-    div{
-      background-color: rgb(184, 183, 180);
+.tabs{
+  :global{
+    .am-tabs-default-bar-content{
+      border-bottom: 1px solid rgb(194, 193, 193);
+    }
+    .am-tabs-default-bar-tab {
+      height: 90px;
+      line-height: 90px;
+      font-size: 14px;
+      
+    }
+    .am-tabs-default-bar-tab-active {
+      font-weight: 700;
+      color: black;
+      div{
+        background-color: rgb(184, 183, 180);
+      }
+    }
+    .am-tabs-default-bar-underline{
+      border: none;
     }
   }
-  .am-tabs-default-bar-underline{
-    border: none;
-  }
 }
+
 .listBox{
   width: 100%;
 }
 .list{
-  color: black;
   padding: 15px;
   margin-bottom: 6px;
   background-color: #fff;
@@ -71,6 +72,9 @@
     margin-bottom: 10px;
     font-weight: 500;
     font-size: 16px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
   }
  
   p{
@@ -78,6 +82,9 @@
     &:first-of-type{
       margin-bottom: 10px;
       color: darkgrey;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
     }
     span{
       float: right;
@@ -85,6 +92,86 @@
       font-size: 16px;
     }
   }
+}
+
+// ========================探讨详情========================
+
+.right{
+  float: right;
+}
+.content{
+  margin-top: 45px;
+  div:first-child{
+    margin-bottom: 10px;
+    background-color: #fff;
+    padding: 10px 20px;
+    p:first-child{
+      font-size: 16px;
+    }
+    p:last-child{
+      text-align: right;
+    }
+  }
+  div:nth-child(2){
+    background-color: #fff;
+    p{
+      width: 92%;
+      margin: 0 auto;
+      padding: 20px 10px 10px;
+      border-bottom: 1px solid rgb(202, 200, 200);
+    }
+    .explain{
+      p{
+        border: none;
+      }
+      div{
+        padding: 20px;
+      }
+    }
+  }
+}
+
+.btns{
+  display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  .bottom{
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    position: relative;
+  p{
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+  }
+  i{
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    font-size: 20px!important;
+  }
+ }
+}
+
+// ========================参与探讨========================
+.fText{
+  .smallTitle{
+    margin: 20px 0 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(202, 200, 200);
+  }
+  div:nth-child(3){
+    padding: 10px 0;
+  }
+}
+.jionMan{
+  padding: 20px;
 }
 
 

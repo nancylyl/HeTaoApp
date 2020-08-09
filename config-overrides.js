@@ -1,14 +1,16 @@
-const { override, fixBabelImports } = require("customize-cra")
+const { override, fixBabelImports, addDecoratorsLegacy } = require("customize-cra")
 const path = require("path")
 const rewirePostcss = require('react-app-rewire-postcss');
 const px2rem = require('postcss-px2rem')
 
 module.exports = override(
+  addDecoratorsLegacy(),
   fixBabelImports('import', {
     libraryName: 'antd-mobile',
     style: 'css',
   }),
   (config, env) => {
+    // config = injectBabelPlugin(['@babel/plugin-proposal-decorators', { "legacy": true }], config)   //{ "legacy": true }一定不能掉，否则报错
 
     // 重写postcss
     rewirePostcss(config, {

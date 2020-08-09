@@ -32,8 +32,7 @@ export default class Discuss extends Component {
           isDev: 0
         })
           .then((res) => {
-            console.log(res)
-            console.log(res.data.data)  
+            // console.log(res)
             if (res.status== 200) {
               this.setState({
                 discussList: res.data.data,
@@ -46,7 +45,9 @@ export default class Discuss extends Component {
       componentDidMount() {
         this.into();
       }
-
+    goToUrl =(param)=>{
+        this.props.history.push('/doc/discussDetails',{data:param});
+    }
 
     goback=()=>{
         history.goBack();
@@ -56,23 +57,6 @@ export default class Discuss extends Component {
         {this.renderRow(tab.id)}
     </div>
     )       
-    getDiscussList = () => {
-        console.log(11111111111);
-        const {discussList} = this.state
-        let lists = discussList.map((item,index)=>{
-            // console.log();
-            return <Link to='/doc' key={index} >
-                <div className={styles.list}>
-                    <h1>{item.discussName}</h1>
-                    <p>{item.DiscussionDescription}</p>
-                    <p>参会主持：{item.doctoId}&nbsp;|&nbsp;{item.hospital}{item.subject}{item.profession}</p>
-                    <p>时间：{moment(item.discussStart).format('YY/MM/DD')}</p>
-                    <p>已报名人数：{item.bNumber}人&nbsp;&nbsp;（{item.joinNumber}人）<span>{item.chargeType}</span></p>
-                </div>
-            </Link>
-        })
-        return lists
-    }
     renderRow=(index)=>{
         if (index==1) {
         return <div className={styles.listBox}>{this.getDiscussList()}</div>
@@ -80,7 +64,20 @@ export default class Discuss extends Component {
         return <p>2222222222</p>
         }
     }
-
+    getDiscussList = () => {
+        const {discussList} = this.state
+        let lists = discussList.map((item,index)=>{
+            // console.log();
+            return <div key={index} className={styles.list} onClick={this.goToUrl.bind(this,item)}>
+                    <h1>{item.discussName}</h1>
+                    <p>{item.DiscussionDescription}</p>
+                    <p>参会主持：{item.doctoId}&nbsp;|&nbsp;{item.hospital}{item.subject}{item.profession}</p>
+                    <p>时间：{moment(item.discussStart).format('YY/MM/DD')}</p>
+                    <p>已报名人数：{item.bNumber}人&nbsp;&nbsp;（{item.joinNumber}人）<span>{item.chargeType}</span></p>
+                </div>
+        })
+        return lists
+    }
     render() {
         return (
             <div className={styles.bigBox}>
@@ -113,14 +110,17 @@ export default class Discuss extends Component {
                         </a>
                     ))}
                 </Carousel>
-                {this.state.loaded&&<Tabs tabs={this.state.tabs}
-                        initialPage={'t1'}
-                        page={'t1'}
-                        page={this.state.page}
-                        className={styles.tab}
-                    >
-                         {this.renderContent}  
+                <div className={styles.tabs}>
+                    {this.state.loaded&&<Tabs tabs={this.state.tabs}
+                            initialPage={'t1'}
+                            page={'t1'}
+                            page={this.state.page}
+                            
+                        >
+                            {this.renderContent}  
                     </Tabs>}
+                </div>
+                
 
             </div>
         )

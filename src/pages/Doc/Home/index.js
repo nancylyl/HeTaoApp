@@ -6,6 +6,7 @@ import Map from './Map'
 
 export default class index extends Component {
   constructor(props) {
+    
     super(props);
     this.state = {
       data: [
@@ -33,6 +34,7 @@ export default class index extends Component {
       }
     }
   }
+
   render() {
     const {docInfo} = this.state
     return (
@@ -42,8 +44,8 @@ export default class index extends Component {
         <Carousel
           autoplay
           // infinite
-          beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-          afterChange={index => console.log('slide to', index)}
+          // beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+          // afterChange={index => console.log('slide to', index)}
           className={styles.banner}
         >
           {this.state.data.map(val => (
