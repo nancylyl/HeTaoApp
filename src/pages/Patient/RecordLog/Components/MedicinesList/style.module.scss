@@ -1,0 +1,17 @@
+.my-drawer {
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  :global {
+    .am-drawer-sidebar {
+      background-color: #fff;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+}
+
+.hightlight {
+  color: red;
+  font-weight: bold;
+}

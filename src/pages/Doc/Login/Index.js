@@ -1,9 +1,10 @@
-import React, { PureComponent } from 'react'
-
-export default class index extends PureComponent {
-  render() {
+import React, { Component } from 'react'
+import Login from '../../../components/Login'
+export default class index extends Component {
+  render () {
     return (
-      <div>werew
+      <div>
+        <Login flag={2} />
       </div>
     )
   }

@@ -11,7 +11,18 @@ class index extends PureComponent {
     files: [],
   };
   onChange = (files, type, index) => {
-    console.log(files, type, index);
+
+    let newFiles = []
+    if (files.length >= 9) {
+      newFiles = files.map((item, index) => {
+        if (index >= 9) {
+          return files.splice(index, 1);
+        }
+      });
+    } else {
+      newFiles = files
+    }
+
     this.setState({
       files,
     });
@@ -27,7 +38,7 @@ class index extends PureComponent {
     this.props.history.push("/Patient/home/index");
 
   })
-  render() {
+  render () {
 
     const { getFieldProps } = this.props.form;
     const { files } = this.state
@@ -46,10 +57,13 @@ class index extends PureComponent {
         <ImagePicker
           files={files}
           onChange={this.onChange}
+          multiple
           // onImageClick={(index, fs) => console.log(index, fs)}
           selectable={files.length < 10}
         />
+
         <Button type="primary" onClick={this.onSubmit}>发布</Button>
+
       </div>
     )
   }

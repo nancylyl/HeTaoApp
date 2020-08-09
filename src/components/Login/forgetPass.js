@@ -9,11 +9,14 @@ class index extends PureComponent {
   state = {
     loading: false,
     yztime: 59,
-    isClick: true
+    isClick: true,
+
   }
 
 
-  clickRegister = () => {
+  click = () => {
+
+
     let userInfo = this.props.form.getFieldsValue()
     const { phoneNubmer, password, userCode, aginpassword } = userInfo
     //#region 注册验证
@@ -23,6 +26,10 @@ class index extends PureComponent {
     }
     if (!(/^1[3456789]\d{9}$/.test(phoneNubmer))) {
       Toast.info("请输入正确的手机号码");
+      return
+    }
+    if (password == undefined) {
+      Toast.info("密码不能为空");
       return
     }
     if (password.length < 6 || password.length > 16) {
@@ -49,7 +56,7 @@ class index extends PureComponent {
 
   }
 
-  postUser(userInfo) {
+  postUser (userInfo) {
     const { isClick } = this.state
     if (isClick) {   //如果为true 开始执行
       this.setState({ isClick: false })   //将isClick 变成false，将不会执行处理事件
@@ -62,7 +69,9 @@ class index extends PureComponent {
     if (isClick) {
       let url = "";
       let goUrl = ""
-      const flag = this.props.flag
+      const flag = this.props.match.params.flag
+      console.log(flag);
+
       if (flag == 1) {
         url = Api.patients.Login
         goUrl = "/Patient"
@@ -137,7 +146,7 @@ class index extends PureComponent {
     }, 1000);
   }
 
-  render() {
+  render () {
     const { getFieldProps } = this.props.form;
     return (
       <div className={styles.bg}>

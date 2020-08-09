@@ -27,10 +27,12 @@ li{
   
 }
 .quick{
- display: flex;
+display: flex;
 width: 100%;
+margin-top: 5px;
 .bottom{
-width: 100%;
+ width: 49%;
+ margin-right: 5px;
   span{
     font-size: 13px !important;
   }

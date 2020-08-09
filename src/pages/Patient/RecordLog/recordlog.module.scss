@@ -1,0 +1,44 @@
+
+.nav-title{
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+}
+
+.content{
+
+    :global{
+      .am-list-item .am-input-label{
+        font-size: 13px !important;
+      }
+      .am-input-control input{
+        font-size: 13px !important;
+        text-align: right;
+      }
+      .am-input-control textarea,  .am-list-extra
+      {  
+        font-size: 13px !important;
+        
+      }
+
+    }
+    
+   .red{
+     color: red;
+     padding-right: 5px;
+   }
+    .chooselable{
+      display:inline-block;
+      margin:5px 5px;
+      padding: 5px;
+      color:red;
+      background-color: #F2F2F2;
+      border-radius: 5px;
+      font-size: 10px;
+    }
+   
+}
+.btn{
+  margin-bottom: 80px;
+}
