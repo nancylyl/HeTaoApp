@@ -12,6 +12,8 @@ import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
 import DiscussDetails from './pages/Doc/Home/discuss/DiscussDetails'
 import JionDiscuss from './pages/Doc/Home/discuss/JionDiscuss';
+import StartDIscuss from './pages/Doc/Home/startDIscuss/StartDIscuss';
+import ChooseDoc from './pages/Doc/Home/startDIscuss/ChooseDoc';
 // import Patient from './pages/Doc/Patient/Patient';
 // import News from './pages/Doc/News/News';
 // import MyInfo from './pages/Doc/MyInfo';
@@ -31,10 +33,14 @@ function App() {
           <Route path="/PforgetPass" exact component={PForgetPass}></Route>
 
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
+          
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/doc/discuss" component={Discuss}></Route>
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
+          <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
+          <Route path="/doc/chooseDoc" component={ChooseDoc}></Route>
+          
           
           <Route
             path="/doc"
