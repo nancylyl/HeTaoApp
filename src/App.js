@@ -50,13 +50,10 @@ function App () {
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/doc/discuss" component={Discuss}></Route>
-<<<<<<< HEAD
           <Route path="/doc/activities" component={activities}></Route>
-=======
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
 
->>>>>>> abd2ae15efef3991b70884e67f8f8b64c0f4b09e
           <Route
             path="/doc"
             render={() => (
@@ -64,24 +61,12 @@ function App () {
                 <Route path="/doc/home/index" exact component={DocHomeIndex} />
                 <Route path="/doc/patient" component={Patient}></Route>
                 <Route path="/doc/news" component={News}></Route>
-<<<<<<< HEAD
                 <Route path="/doc/myInfo/index" component={MyInfo}></Route>
-=======
-                <Route path="/doc/myInfo/index" component={MyInfo}></Route> */}
-
                 <Route path="/doc/home/mypatient" exact component={DocMyPatient} />
-<<<<<<< HEAD
                 <Route path="/doc/home/mypatientdetail/:id" exact component={DocMyPatientDetail} />
                 <Route path="/doc/home/mypatientRecordLogdetail/:id" exact component={DocMyPatientRecordLogDetail} />
                 <Route path="/doc/home/mypatientpesoninfo/:uId" exact component={DocMyPatientPersonInfo} />
                 <Route path="/doc/mypatient/components/patientlist/:flag" exact component={DocMyPatientList} />{/* 我的所有患者 */}
-
-
-
-=======
-                <Route path="/doc/home/mypatientdetail" exact component={DocMyPatientDetail} />
->>>>>>> abd2ae15efef3991b70884e67f8f8b64c0f4b09e
->>>>>>> a6600746b6d841e95d71a970cfe6915ae8a8bee9
               </DocIndex>
             )}
           >
