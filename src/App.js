@@ -35,6 +35,8 @@ import ChooseDoc from './pages/Doc/Home/startDIscuss/ChooseDoc';
 // import News from './pages/Doc/News/News';
 // import MyInfo from './pages/Doc/MyInfo';
 
+import PatientMyPatientDetail from './pages/Patient/medicalRecord/comment'//患者详情
+import PatientMyPatientRecordLogDetail from './pages/Patient/medicalRecord/comment/PatientRecordLogDetail'
 
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
@@ -86,7 +88,8 @@ function App () {
                 <Route path="/patient/photo/index" exact component={PatientPhoto} />
                 <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
                 <Route path="/patient/recordLog/index" exact component={PRecordLog} />
-                <Route path="/patient/medicalRecord" component={medicalRecord}></Route>
+                <Route path="/patient/medicalRecord" exact component={medicalRecord}></Route>
+                <Route path="/patient/medicalRecord/:id" exact component={PatientMyPatientDetail} />
               </PatientIndex>
             )}
           ></Route>
