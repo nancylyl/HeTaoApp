@@ -1,0 +1,35 @@
+.add{
+  
+  .content{
+
+    font-size: 13px;
+    .list{
+      margin: 5px 0;
+    }
+  }
+  .red{
+    color: red;
+  }
+
+  .btn{
+    padding: 80px 0;
+  }
+  :global{
+    .am-input-label ,input,.am-list-extra{
+      font-size: 13px !important;
+    }
+  }
+  i{
+    margin: 0 2px;
+  }
+  
+}
+.chooselable{
+  display:inline-block;
+  margin:5px 5px;
+  padding: 5px;
+  color:red;
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  font-size: 10px;
+}

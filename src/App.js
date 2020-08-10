@@ -14,8 +14,10 @@ import PRecordLog from './pages/Patient/RecordLog'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
 
-import activities from './pages/Doc/Home/activities/activities'
+import Activities from './pages/Doc/Home/Activities'
 
+import AddActivities from './pages/Doc/Home/Activities/Compontents/Add'
+import DetailActivities from './pages/Doc/Home/Activities/Compontents/Detail'
 import Patient from './pages/Doc/Patient/Patient';
 import News from './pages/Doc/News/News';
 import MyInfo from './pages/Doc/MyInfo';
@@ -50,11 +52,11 @@ function App () {
           <Route path="/PforgetPass/:flag" exact component={PForgetPass}></Route>
 
 
-          <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
+          <Route path="/patient" exact render={() => <Redirect to={'/patient/home/index'} />}></Route>
 
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/doc/discuss" component={Discuss}></Route>
-          <Route path="/doc/activities" component={activities}></Route>
+
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
@@ -70,6 +72,9 @@ function App () {
                 <Route path="/doc/news" component={News}></Route>
                 <Route path="/doc/myInfo/index" component={MyInfo}></Route>
                 <Route path="/doc/home/mypatient" exact component={DocMyPatient} />
+                <Route path="/doc/activities" exact component={Activities}></Route>
+                <Route path="/doc/activities/add" exact component={AddActivities}></Route>
+                <Route path="/doc/activities/detail" exact component={DetailActivities}></Route>
                 <Route path="/doc/home/mypatientdetail/:id" exact component={DocMyPatientDetail} />
                 <Route path="/doc/home/mypatientRecordLogdetail/:id" exact component={DocMyPatientRecordLogDetail} />
                 <Route path="/doc/home/mypatientpesoninfo/:uId" exact component={DocMyPatientPersonInfo} />
