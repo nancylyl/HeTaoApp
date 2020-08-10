@@ -23,6 +23,9 @@ export default class index extends PureComponent {
     else if (index == 2) {
       this.props.history.push("/patient/medicalRecord")
     }
+    else if (index == 3) {
+      this.props.history.push("/patient/news")
+    }
   })
   render () {
     return (

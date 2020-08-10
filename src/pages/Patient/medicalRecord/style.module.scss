@@ -4,6 +4,13 @@ body{
   margin: 0;
   padding: 0;
 }
+.nav {
+  border-bottom: 2px solid #858a94;
+}
+.rightspan{
+  font-size: 10px;
+  color: rgb(117, 115, 115);
+}
 .big-box{
   margin-bottom: 60px;
 .topTitle{
@@ -15,8 +22,9 @@ body{
   border: 1px solid black;
   position: relative;
 }
-
-
+.righta{
+  font-size: 10px;
+}
 li{
   padding: 0;
   margin: 0;
@@ -28,7 +36,9 @@ li{
   text-align: center;
   background: #364d79;
   
-  
+}
+.a-jilu{
+  color: #108ee9
 }
 .quick{
  display: flex;
@@ -55,7 +65,7 @@ width: 100%;
 .my-doctor{
   background-color: #fff;
   line-height: 25px;
-  padding-top: 20px;
+  padding-top: 10px;
   position: relative;
   .header{
     height: 60px;
