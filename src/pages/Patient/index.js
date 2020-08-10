@@ -1,6 +1,10 @@
 import React, { PureComponent } from 'react'
 import { Tabs, WhiteSpace, TabBar } from 'antd-mobile';
+import { Redirect, withRouter } from 'react-router-dom'
 import styles from '../../style.module.scss';
+
+
+@withRouter
 export default class index extends PureComponent {
   constructor(props) {
     super(props);
@@ -13,8 +17,14 @@ export default class index extends PureComponent {
     this.setState({
       selectedTab: index
     })
+    if (index == 1) {
+
+    }
+    else if (index == 2) {
+      this.props.history.push("/patient/medicalRecord")
+    }
   })
-  render() {
+  render () {
     return (
       < >
         <div className={styles.content}>
@@ -42,7 +52,6 @@ export default class index extends PureComponent {
               selectedIcon={<div className={styles.tabBarItemSelet} ><i className={['iconfont  icon-bingliben']}></i></div>}
               title="病历本"
               key="2"
-
               selected={this.state.selectedTab === 2}
               onPress={() => { this.onPress(2); }}>
 

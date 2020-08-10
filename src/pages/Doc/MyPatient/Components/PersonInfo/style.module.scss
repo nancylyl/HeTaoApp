@@ -1,0 +1,50 @@
+.peoson{
+  background-color: #fff;
+   min-height:100vh;
+  // width: 100vw;
+  // height: 100vh;
+}
+.title{
+    font-size: 20px;
+    text-align: center;
+     padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .headimg{
+    text-align: center;
+    margin: 10px;
+    img{
+      width: 60px;
+      height: 60px;
+    }
+  }
+  .show-info {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+  }
+  .show-info .progress {
+    margin-right: 5px;
+    width: 100%;
+
+    :global{
+      .am-progress-outer{
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .am-progress-bar{
+        height: 10px !important;
+        background-color:#108ee9;
+      }
+    }
+  }
+  .content{
+
+    :global{
+      .am-tabs-default-bar-tab
+      {
+        font-size: 13px;
+      }
+    }
+  }

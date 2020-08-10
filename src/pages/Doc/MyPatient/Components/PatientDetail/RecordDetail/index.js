@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import styles from './style.module.scss'
 import { Card, WhiteSpace } from 'antd-mobile';
 import { StickyContainer, Sticky } from 'react-sticky';
+import { Link } from 'react-router-dom';
 
 export default class index extends PureComponent {
   state = {
@@ -32,7 +33,7 @@ export default class index extends PureComponent {
         datetime: "2017-11-10",
         week: "星期一",
         state: 2,
-        stateName: "编辑",
+        stateName: "查看",
         address: "北京癫痫专业医院",
         self: "用户创建"
       },
@@ -42,7 +43,7 @@ export default class index extends PureComponent {
         datetime: "2017-11-10",
         week: "星期一",
         state: 1,
-        stateName: "编辑",
+        stateName: "查看",
         address: "北京癫痫专业医院",
         self: ""
       },
@@ -80,7 +81,7 @@ export default class index extends PureComponent {
               <span className={styles.desc}>{item.week}</span>
             </div>
             <div>
-              <a className={styles.btnSee}>{item.stateName}</a>
+              <Link className={styles.btnSee} to={`/doc/home/mypatientRecordLogdetail/${item.id}`}>{item.stateName}</Link>
             </div>
           </div>
           <div className={styles["row"]}>

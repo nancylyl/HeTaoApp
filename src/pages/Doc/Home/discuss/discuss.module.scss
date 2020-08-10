@@ -93,20 +93,35 @@
     }
   }
 }
-
+.startDiscuss{
+  width: 45px;
+  height: 31px;
+  background-color: rgb(202, 201, 199);
+  border-radius: 50%;
+  text-align: center;
+  padding: 7px 0;
+  position: fixed;
+  bottom: 50px;
+  right: 15px;
+}
 // ========================探讨详情========================
 
 .right{
   float: right;
 }
 .content{
+  p{
+    width: 92%;
+    margin: 0 auto;
+    padding: 10px;
+  }
   margin-top: 45px;
   div:first-child{
     margin-bottom: 10px;
     background-color: #fff;
-    padding: 10px 20px;
     p:first-child{
       font-size: 16px;
+      
     }
     p:last-child{
       text-align: right;
@@ -115,9 +130,7 @@
   div:nth-child(2){
     background-color: #fff;
     p{
-      width: 92%;
-      margin: 0 auto;
-      padding: 20px 10px 10px;
+      padding: 15px 10px;
       border-bottom: 1px solid rgb(202, 200, 200);
     }
     .explain{
@@ -136,6 +149,7 @@
   width: 100%;
   position: fixed;
   bottom: 0;
+  
   .bottom{
     width: 100%;
     border: none;
@@ -145,6 +159,7 @@
     -ms-border-radius: 0;
     -o-border-radius: 0;
     position: relative;
+    font-size: 14px;
   p{
     position: absolute;
     bottom: -10px;
@@ -160,18 +175,66 @@
 }
 
 // ========================参与探讨========================
-.fText{
-  .smallTitle{
-    margin: 20px 0 10px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgb(202, 200, 200);
+
+.jionBox{
+  .topTitle{
+    text-align: center;
+    font-size: 14px;
+    line-height: 45px;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(175, 172, 172);
+    width: 100%;
+    position:fixed; 
+    top:0;
+    left:0;
+    z-index: 10;
+    .icon{
+        position: absolute;
+        top: 15px;
+        left: 20px;
+    }
   }
-  div:nth-child(3){
-    padding: 10px 0;
+  p{
+    width: 92%;
+    margin: 0 auto;
+    padding: 15px 10px;
   }
+  .context{
+    margin-top: 45px;
+    div:first-child{
+      background-color: #fff;
+      p:first-child{
+        font-size: 16px;
+      }
+      .smallTitle{
+        padding: 0 10px 20px;
+        border-bottom: 1px solid rgb(202, 200, 200);
+      }
+    }
+  }
+  .jionMan{
+    background-color: #fff;
+    p{
+      margin-top: 5px;
+    }
+  }
+  .checkbox{
+    color: rgb(169, 171, 173);
+    div{
+      color: black;
+      &:first-of-type{
+        background-color: #fff;
+      }
+    }
+    .check{
+      float: right;
+      width: 20px;
+      height: 20px;
+    }
+  }
+    
 }
-.jionMan{
-  padding: 20px;
-}
+
+
 
 
