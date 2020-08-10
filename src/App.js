@@ -91,7 +91,11 @@ function App () {
                 <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
                 <Route path="/patient/recordLog/index" exact component={PRecordLog} />
                 <Route path="/patient/medicalRecord" component={medicalRecord}></Route>
+<<<<<<< HEAD
                 <Route path="/patient/news" component={news}></Route>
+=======
+
+>>>>>>> 02b0e6949953cd7779295d4c15a8ffcaeae3abf2
               </PatientIndex>
             )}
           ></Route>
