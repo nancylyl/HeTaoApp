@@ -11,6 +11,8 @@ import PForgetPass from './components/Login/forgetPass'
 import PLogin from './pages/Patient/Login'
 import medicalRecord from './pages/Patient/medicalRecord/medicalRecord'
 import PRecordLog from './pages/Patient/RecordLog'
+import news from './pages/Patient/News/news'//患者消息
+
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
 
@@ -19,6 +21,7 @@ import activities from './pages/Doc/Home/activities/activities'
 import Patient from './pages/Doc/Patient/Patient';
 import News from './pages/Doc/News/News';
 import MyInfo from './pages/Doc/MyInfo';
+import AccountInf from './pages/Doc/MyInfo/AccountInf'//账户信息
 
 import DiscussDetails from './pages/Doc/Home/discuss/DiscussDetails'
 
@@ -59,6 +62,7 @@ function App () {
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
           <Route path="/doc/chooseDoc" component={ChooseDoc}></Route>
+          <Route path="/doc/MyInfo/AccountInf" component={AccountInf}></Route>
 
 
           <Route
@@ -87,6 +91,7 @@ function App () {
                 <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
                 <Route path="/patient/recordLog/index" exact component={PRecordLog} />
                 <Route path="/patient/medicalRecord" component={medicalRecord}></Route>
+                <Route path="/patient/news" component={news}></Route>
               </PatientIndex>
             )}
           ></Route>
