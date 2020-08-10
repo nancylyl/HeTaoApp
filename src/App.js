@@ -11,14 +11,19 @@ import PForgetPass from './components/Login/forgetPass'
 import PLogin from './pages/Patient/Login'
 import medicalRecord from './pages/Patient/medicalRecord/medicalRecord'
 import PRecordLog from './pages/Patient/RecordLog'
+import news from './pages/Patient/News/news'//患者消息
+
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
 
-import activities from './pages/Doc/Home/activities/activities'
+import Activities from './pages/Doc/Home/Activities'
 
+import AddActivities from './pages/Doc/Home/Activities/Compontents/Add'
+import DetailActivities from './pages/Doc/Home/Activities/Compontents/Detail'
 import Patient from './pages/Doc/Patient/Patient';
 import News from './pages/Doc/News/News';
 import MyInfo from './pages/Doc/MyInfo';
+import AccountInf from './pages/Doc/MyInfo/AccountInf'//账户信息
 
 import DiscussDetails from './pages/Doc/Home/discuss/DiscussDetails'
 
@@ -35,6 +40,8 @@ import StartDIscuss from './pages/Doc/Home/startDIscuss/StartDIscuss';
 // import News from './pages/Doc/News/News';
 // import MyInfo from './pages/Doc/MyInfo';
 
+import PatientMyPatientDetail from './pages/Patient/medicalRecord/comment'//患者详情
+import PatientMyPatientRecordLogDetail from './pages/Patient/medicalRecord/comment/PatientRecordLogDetail'
 
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
@@ -50,15 +57,20 @@ function App () {
           <Route path="/PforgetPass/:flag" exact component={PForgetPass}></Route>
 
 
-          <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
+          <Route path="/patient" exact render={() => <Redirect to={'/patient/home/index'} />}></Route>
 
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/doc/discuss" component={Discuss}></Route>
-          <Route path="/doc/activities" component={activities}></Route>
+
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
+<<<<<<< HEAD
           
+=======
+          <Route path="/doc/chooseDoc" component={ChooseDoc}></Route>
+          <Route path="/doc/MyInfo/AccountInf" component={AccountInf}></Route>
+>>>>>>> a48ea97a4ec685b9565c38c92cfec0036d2a6c99
 
 
           <Route
@@ -70,6 +82,9 @@ function App () {
                 <Route path="/doc/news" component={News}></Route>
                 <Route path="/doc/myInfo/index" component={MyInfo}></Route>
                 <Route path="/doc/home/mypatient" exact component={DocMyPatient} />
+                <Route path="/doc/activities" exact component={Activities}></Route>
+                <Route path="/doc/activities/add" exact component={AddActivities}></Route>
+                <Route path="/doc/activities/detail" exact component={DetailActivities}></Route>
                 <Route path="/doc/home/mypatientdetail/:id" exact component={DocMyPatientDetail} />
                 <Route path="/doc/home/mypatientRecordLogdetail/:id" exact component={DocMyPatientRecordLogDetail} />
                 <Route path="/doc/home/mypatientpesoninfo/:uId" exact component={DocMyPatientPersonInfo} />
@@ -86,8 +101,10 @@ function App () {
                 <Route path="/patient/photo/index" exact component={PatientPhoto} />
                 <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
                 <Route path="/patient/recordLog/index" exact component={PRecordLog} />
+                <Route path="/patient/medicalRecord" exact component={medicalRecord}></Route>
+                <Route path="/patient/medicalRecord/:id" exact component={PatientMyPatientDetail} />
                 <Route path="/patient/medicalRecord" component={medicalRecord}></Route>
-
+                <Route path="/patient/news" component={news}></Route>
               </PatientIndex>
             )}
           ></Route>

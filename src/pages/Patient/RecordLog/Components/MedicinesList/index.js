@@ -16,7 +16,6 @@ export default class MedicinesList extends PureComponent {
   componentDidUpdate (prevProps) {
     const { visible, selected } = this.props;
     if (!prevProps.visible && visible) {
-      console.log('open')
       // 打开时
       this.setState({
         selectedCache: _.cloneDeep(selected),
@@ -59,7 +58,8 @@ export default class MedicinesList extends PureComponent {
 
         item.label = `
           ${itemlabel.slice(0, startIndex)} 
-          <span class="${styles.hightlight}">${itemlabel.slice(startIndex, endIndex)}</span> 
+          <span class="${styles.hightlight}">
+        ${itemlabel.slice(startIndex, endIndex)}</span> 
           ${itemlabel.slice(endIndex, itemlabel.length)}
         `;
 

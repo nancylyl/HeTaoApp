@@ -118,19 +118,6 @@ export default class index extends PureComponent {
               className='react_for_echarts' />
           }
         </div>
-
-        <ul>
-          {
-            data.length > 0 && data.map(item => {
-              return (
-                <li className={styles.content} key={item.id}>
-                  <div>{item.dattetime}</div>
-                  <div>{item.desc}</div>
-                </li>
-              )
-            })
-          }
-        </ul>
       </div>
 
     )

@@ -18,10 +18,13 @@ export default class index extends PureComponent {
       selectedTab: index
     })
     if (index == 1) {
-
+      this.props.history.push("/patient")
     }
     else if (index == 2) {
       this.props.history.push("/patient/medicalRecord")
+    }
+    else if (index == 3) {
+      this.props.history.push("/patient/news")
     }
   })
   render () {
