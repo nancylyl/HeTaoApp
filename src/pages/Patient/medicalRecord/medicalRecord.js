@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styles from './style.module.scss'
 import { Carousel, Button, WhiteSpace, Card, Badge, List } from 'antd-mobile';
-import CaseRecord from './CaseRecord'
 export default class index extends Component {
 
   render() {
@@ -34,7 +33,6 @@ export default class index extends Component {
             <Card full>
               <Card.Header title="症状变化" className={styles.activity} />
               <Card.Body className={styles["card-body"]}>
-              <CaseRecord></CaseRecord>
                 <ul>
                   <li className={styles["content"]}>
                     <div >
