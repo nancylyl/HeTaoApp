@@ -3,11 +3,15 @@ import styles from './style.module.scss'
 import { Carousel, Button, WhiteSpace, Card, Badge, List } from 'antd-mobile';
 export default class index extends Component {
 
-  render() {
+  render () {
     return (
       <div className={styles["big-box"]} >
         <div className={styles.topTitle}>病历本
-        <a className={styles["a-jilu"]} href="">就诊记录</a>
+        <a className={styles["a-jilu"]} href="" onClick={
+            () => {
+              this.props.history.push("/patient/recordLog/index")
+            }
+          }>就诊记录</a>
         </div>
         <div className={styles["my-doctor"]}>
           <div className={styles["header"]}>
@@ -18,9 +22,9 @@ export default class index extends Component {
             </div>
           </div>
           <div className={styles["header-profile"]}>
-            <span>性别：男</span>                
-            <span>年龄：44岁</span>                
-            <span>城市：上海</span>                
+            <span>性别：男</span>
+            <span>年龄：44岁</span>
+            <span>城市：上海</span>
           </div>
           <div className={styles["header-profile"]}>
             确诊医院：北京癫痫医院
