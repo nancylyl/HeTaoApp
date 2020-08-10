@@ -17,9 +17,6 @@ import Discuss from './pages/Doc/Home/discuss/Discuss'
 import activities from './pages/Doc/Home/activities/activities'
 
 import Patient from './pages/Doc/Patient/Patient';
-import allPatient from './pages/Doc/Patient/allPatient';
-import FocusonPatient from './pages/Doc/Patient/FocusonPatient';
-
 import News from './pages/Doc/News/News';
 import MyInfo from './pages/Doc/MyInfo';
 
@@ -70,7 +67,6 @@ function App () {
               <DocIndex>
                 <Route path="/doc/home/index" exact component={DocHomeIndex} />
                 <Route path="/doc/patient" component={Patient}></Route>
-
                 <Route path="/doc/news" component={News}></Route>
                 <Route path="/doc/myInfo/index" component={MyInfo}></Route>
                 <Route path="/doc/home/mypatient" exact component={DocMyPatient} />
