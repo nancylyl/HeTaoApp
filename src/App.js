@@ -65,12 +65,10 @@ function App () {
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
-<<<<<<< HEAD
-          
-=======
-          <Route path="/doc/chooseDoc" component={ChooseDoc}></Route>
+ 
+
           <Route path="/doc/MyInfo/AccountInf" component={AccountInf}></Route>
->>>>>>> a48ea97a4ec685b9565c38c92cfec0036d2a6c99
+
 
 
           <Route
