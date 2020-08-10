@@ -87,6 +87,7 @@ function App () {
                 <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
                 <Route path="/patient/recordLog/index" exact component={PRecordLog} />
                 <Route path="/patient/medicalRecord" component={medicalRecord}></Route>
+
               </PatientIndex>
             )}
           ></Route>
