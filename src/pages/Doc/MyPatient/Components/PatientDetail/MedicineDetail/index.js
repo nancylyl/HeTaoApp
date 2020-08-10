@@ -64,9 +64,9 @@ export default class index extends PureComponent {
 
         <ul>
           {
-            data.length > 0 && data.map(item => {
+            data.length > 0 && data.map((item, index) => {
               return (
-                <li className={styles.content} key={item.id}>
+                <li className={styles.content} key={index}>
                   <div>{item.dattetime}</div>
                   <div>{item.desc}</div>
                 </li>

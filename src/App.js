@@ -9,6 +9,7 @@ import PatientBadFeel from './pages/Patient/BadFeel'
 
 import PForgetPass from './components/Login/forgetPass'
 import PLogin from './pages/Patient/Login'
+import medicalRecord from './pages/Patient/medicalRecord/medicalRecord'
 import PRecordLog from './pages/Patient/RecordLog'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
@@ -50,7 +51,7 @@ function App () {
 
 
           <Route path="/patient" exact render={() => <Redirect to={'/Patient/home/index'} />}></Route>
-          
+
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/doc/discuss" component={Discuss}></Route>
           <Route path="/doc/activities" component={activities}></Route>
@@ -58,8 +59,8 @@ function App () {
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
           <Route path="/doc/chooseDoc" component={ChooseDoc}></Route>
-          
-          
+
+
           <Route
             path="/doc"
             render={() => (
@@ -85,6 +86,7 @@ function App () {
                 <Route path="/patient/photo/index" exact component={PatientPhoto} />
                 <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
                 <Route path="/patient/recordLog/index" exact component={PRecordLog} />
+                <Route path="/patient/medicalRecord" component={medicalRecord}></Route>
 
               </PatientIndex>
             )}

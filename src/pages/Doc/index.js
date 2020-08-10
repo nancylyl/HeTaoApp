@@ -21,6 +21,7 @@ export default class index extends PureComponent {
     if (index == 1) {
       history.push('/doc')
     } else if (index == 2) {
+      // history.push('/doc/patient')
       history.push('/doc/home/mypatient')
     } else if (index == 3) {
       history.push('/doc/news')
@@ -54,10 +55,8 @@ export default class index extends PureComponent {
               selectedIcon={<div className={styles.tabBarItemSelet} ><i className={['iconfont  icon-huanzhehebing']}></i></div>}
               title="患者"
               key="2"
-
               selected={this.state.selectedTab === 2}
               onPress={() => { this.onPress(2); }}>
-
             </TabBar.Item>
             <TabBar.Item
               icon={<div className={styles.tabBarItem} ><i className={['iconfont icon-dkw_xiaoxi']}></i></div>}
