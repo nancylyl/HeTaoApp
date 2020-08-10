@@ -1,8 +1,14 @@
 import React, { PureComponent } from 'react'
 import styles from './style.module.scss'
-import { Tabs, WhiteSpace } from 'antd-mobile';
-import { StickyContainer, Sticky } from 'react-sticky';
-import RecordDetail from '../RecordDetail'
+import { Tabs, WhiteSpace, Icon } from 'antd-mobile';
+import { StickyContainer } from 'react-sticky';
+import { Link } from 'react-router-dom';
+import RecordDetail from './RecordDetail'
+import OnsetDetail from './OnsetDetail'//发作记录AdverseDetail 
+import AdverseDetail from './AdverseDetail'//不良反应
+import LogDetail from './LogDetail'//病情日志
+import MedicineDetail from './MedicineDetail'//药物治疗
+import echarts from 'echarts';
 const tabs = [
   { title: '就诊记录', sub: '1' },
   { title: '发作记录', sub: '2' },
@@ -12,6 +18,7 @@ const tabs = [
 ];
 export default class index extends PureComponent {
   state = {
+    uId: 1,///doc/home/mypatientpersoninfo"
     userInfo: {
       name: "张三",
       headUrl: require("assets/images/3.png"),
@@ -23,12 +30,21 @@ export default class index extends PureComponent {
   }
 
   render () {
-    const { userInfo } = this.state;
-    console.log(userInfo);
+    const { userInfo, uId } = this.state;
 
     return (
       <div className={styles.mypatientdetail}>
-        <p className={styles.title}>患者详情</p>
+        <div className={styles.nav}>
+          <Icon
+            onClick={() => {
+              this.props.history.push(`/doc/mypatient/components/patientlist/${uId}`)
+            }}
+            className={styles.back}
+            type="left"
+          />
+          <p className={styles.title}>患者详情</p>
+        </div>
+
         <div className={styles.header}>
           <div className={styles["head-left"]}>
             <img src={userInfo.headUrl} className={styles["headimg"]} />
@@ -39,7 +55,7 @@ export default class index extends PureComponent {
             </div>
           </div>
           <div>
-            <a className={styles["search-info"]}>查看个人资料</a>
+            <Link className={styles["search-info"]} to={`/doc/home/mypatientpesoninfo/${uId}`} >查看个人资料</Link>
           </div>
         </div>
         <div className={styles.content}>
@@ -48,14 +64,11 @@ export default class index extends PureComponent {
             <Tabs tabs={tabs}
               initialPage={'1'}
             >
-              <RecordDetail />
-
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-                Content of second tab
-                </div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '250px', backgroundColor: '#fff' }}>
-                Content of third tab
-                </div>
+              <RecordDetail uId={uId} />
+              <OnsetDetail uId={uId} />
+              <AdverseDetail uId={uId} />
+              <LogDetail uId={uId} />
+              <MedicineDetail uId={uId} />
             </Tabs>
           </StickyContainer>
           <WhiteSpace />

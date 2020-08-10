@@ -4,7 +4,6 @@ import moment from 'moment';
 import { Carousel, Icon, Tabs, Badge } from 'antd-mobile';
 import Axios from '../../../../util/axios'
 import Api from '../../../../api/index'
-import { Link } from 'react-router-dom'
 const createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();//返回上一页这段代码
 
@@ -42,13 +41,12 @@ export default class Discuss extends Component {
             }
           })
       }
-      componentDidMount() {
-        this.into();
-      }
-    goToUrl =(param)=>{
-        this.props.history.push('/doc/discussDetails',{data:param});
+    componentDidMount() {
+      this.into();
     }
-
+    goToUrl =(param)=>{
+      this.props.history.push('/doc/discussDetails',{data:param});
+    }
     goback=()=>{
         history.goBack();
     }
@@ -61,7 +59,7 @@ export default class Discuss extends Component {
         if (index==1) {
         return <div className={styles.listBox}>{this.getDiscussList()}</div>
         }else{
-        return <p>2222222222</p>
+        return <div className={styles.listBox}>{this.getDiscussList()}</div>
         }
     }
     getDiscussList = () => {
@@ -77,6 +75,10 @@ export default class Discuss extends Component {
                 </div>
         })
         return lists
+    }
+
+    goStart = () => {
+      this.props.history.push('/doc/startDiscuss');
     }
     render() {
         return (
@@ -120,9 +122,9 @@ export default class Discuss extends Component {
                             {this.renderContent}  
                     </Tabs>}
                 </div>
-                
-
+                <div className={styles.startDiscuss} onClick={this.goStart}>发起<br/>探讨</div>
             </div>
         )
     }
 }
+
