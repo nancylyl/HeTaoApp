@@ -94,13 +94,13 @@ export default class Discuss extends Component {
                     {this.state.data.map(val => (
                         <a
                         key={val}
-                        href="http://www.alipay.com"
+                        href=""
                         style={{ display: 'inline-block', width: '100%', height: '40vw' }}
                         className={styles.img}
                         >
                         {val.title}
                         <img
-                            src={`https://zos.alipayobjects.com/rmsportal/${val}.png`}
+                            src=''
                             alt=""
                             style={{ width: '100%', verticalAlign: 'top' }}
                             onLoad={() => {

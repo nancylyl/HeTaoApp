@@ -54,10 +54,8 @@ export default class index extends PureComponent {
               selectedIcon={<div className={styles.tabBarItemSelet} ><i className={['iconfont  icon-huanzhehebing']}></i></div>}
               title="患者"
               key="2"
-
               selected={this.state.selectedTab === 2}
               onPress={() => { this.onPress(2); }}>
-
             </TabBar.Item>
             <TabBar.Item
               icon={<div className={styles.tabBarItem} ><i className={['iconfont icon-dkw_xiaoxi']}></i></div>}

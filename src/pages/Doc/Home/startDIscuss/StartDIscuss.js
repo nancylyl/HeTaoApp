@@ -15,14 +15,17 @@ class StartDIscuss extends Component {
         this.state = {
             list:'',
             dpValue: now,
+            formVal: ''
         }
     }
+
     goback=()=>{
         history.goBack();
     }
     // 提交表单
     onSubmit = () => {
         console.log(this.props.form.validateFields());
+        
         this.props.form.validateFields({ force: true }, (error) => {
           if (!error) {
             console.log(this.props.form.getFieldsValue());
@@ -46,6 +49,11 @@ class StartDIscuss extends Component {
 
     // 选择医生
     chooseDoc = () => {
+        this.setState({
+            formVal: this.props.form.validateFields()
+        })
+        console.log(this.state.formVal);
+        // this.props.navigate("/doc/chooseDoc", { onSelect: this.state.formVal });
         this.props.history.push('/doc/chooseDoc');
     }
     // 费用类型选择
@@ -76,12 +84,13 @@ class StartDIscuss extends Component {
     //  得到提交按钮
     chooseBtn = () => {
         let list = this.props.form.getFieldsValue()
+        // console.log(this.state.formVal);
         for(var item in list){
             if(list[item]==undefined){
                 return <Button style={{backgroundColor:'rgb(209, 207, 207)'}} className={styles.button} onClick={this.prompt}>确认发起</Button>
             }
         }
-        return <Button type="primary" className={styles.button} onClick={this.onSubmit}>确认发起</Button>
+        return <Button type="primary" className={styles.button} onClick={this.onSubmit}>确认发起</Button>        
     }
  
     render() {
