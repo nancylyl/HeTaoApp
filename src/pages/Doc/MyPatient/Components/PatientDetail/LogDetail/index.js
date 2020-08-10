@@ -58,7 +58,7 @@ export default class index extends PureComponent {
 
             return (
               <Card key={item.id}>
-                <Card.Header title={item.datetime} />
+                <Card.Header title={item.datetime} key={item.id} />
                 <Card.Body>
                   <div>{item.content}</div>
                   {

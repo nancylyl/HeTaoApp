@@ -30,7 +30,7 @@ export default class index extends PureComponent {
   }
 
   goBack = () => {
-    this.props.history.push("/doc/home/mypatientdetail")
+    this.props.history.push("/doc/home/mypatientdetail/1")
   }
   render () {
 
