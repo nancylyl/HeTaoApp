@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import styles from './start.module.scss'
 import {  Icon, Tabs, Checkbox } from 'antd-mobile';
-import { createForm } from 'rc-form';
+
+
 const createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();//返回上一页这段代码
 let  obj=[];
 
-class ChooseDoc extends Component {
+export default class ChooseDoc extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -88,8 +89,7 @@ class ChooseDoc extends Component {
                 }
               ],
             loaded: false,
-            checked: false,
-        
+            checkedData:[] 
         }
     }
     componentDidMount() {
@@ -118,11 +118,8 @@ class ChooseDoc extends Component {
     }
     getDocList = (key) => {
         const {tabs} = this.state
-        const { getFieldProps } = this.props.form;
         // console.log(key);
-
         let lists = tabs[key-1].children.map((item,index)=>{
-    
             return <div key={index} className={styles.list}>
                     <span className={styles.left}>{item.title}</span>
                     <Checkbox  
@@ -135,35 +132,37 @@ class ChooseDoc extends Component {
     }
     
     onChange = (val) => {
-        if (obj.length===0) {
-            obj.push(val)
-        }else{
-            obj.map((item,index)=>{
-                console.log(1,obj);
-                if (item == val) {
-                    console.log(index);
-                    obj.splice(index,1)
-                }else if(item !== val){
-                    obj.push(val) 
-                }
-            
-            })
+      if (obj.length===0) {
+          obj.push(val)
+      }else{
+        var objStr = obj.toString()
+        if (objStr.indexOf(val)<1) {
+          obj.push(val) 
+        } else {
+          obj.map((item,index)=>{
+            if (item == val) {
+                obj.splice(index,1)
+            }
+          })
         }
-        console.log(4,obj);
+      }
+      this.setState({
+        checkedData: obj
+      })
+      console.log(4,obj);
     }
 
-    render() {
-        
+    render() {        
         return (
             <div className={styles.bigBox}>
-                <div className={styles.topTitle}><Icon type={'left'}  className={styles.icon} onClick={this.goback}/>选择医生<p>完成</p></div>
+                <div className={styles.topTitle}><Icon type={'left'}  className={styles.icon} onClick={this.goback}/>选择医生<p onClick={this.goback}>完成</p></div>
                 <div className={styles.chooseBox}>
                 <form>
                     {this.state.loaded&&<Tabs tabs={this.state.tabs}
                     initialPage={'1'}
                     tabBarPosition="left"
                     >
-                        {this.renderContent}  
+                      {this.renderContent}  
                     </Tabs>}
                 </form>    
                 </div>
@@ -171,5 +170,3 @@ class ChooseDoc extends Component {
         )
     }
 }
-const ChooseDoc1 = createForm()(ChooseDoc);
-export default ChooseDoc1
