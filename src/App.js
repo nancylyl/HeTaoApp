@@ -10,6 +10,7 @@ import PatientBadFeel from './pages/Patient/BadFeel'
 import PForgetPass from './components/Login/forgetPass'
 import PLogin from './pages/Patient/Login'
 import medicalRecord from './pages/Patient/medicalRecord/medicalRecord'
+import PRecordLog from './pages/Patient/RecordLog'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
 import activities from './pages/Doc/Home/activities/activities'
@@ -54,6 +55,9 @@ function App () {
             render={() => (
               <PatientIndex>
                 <Route path="/patient/home/index" exact component={PatientHomeIndex} />
+                <Route path="/patient/photo/index" exact component={PatientPhoto} />
+                <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
+                <Route path="/patient/recordLog/index" exact component={PRecordLog} />
                 <Route path="/patient/medicalRecord" component={medicalRecord}></Route>
               </PatientIndex>
             )}
