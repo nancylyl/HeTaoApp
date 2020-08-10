@@ -40,31 +40,29 @@
         resize:none;
         width: 100%;
     }
-  }
-  .btns{
-    display: flex;
+  } 
+}
+.btns{
+  display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  .button{
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    .button{
-      width: 100%;
-      border: none;
-      border-radius: 0;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
-      -o-border-radius: 0;
-      position: relative;
-      font-size: 14px;
-   }
-  }
-  
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    position: relative;
+    font-size: 14px;
+ }
 }
 
 // ========================选择医生============================
 .chooseBox{
-  margin-top: 45px;
   :global{
     .am-tabs-default-bar-underline{
       border: none;
@@ -95,6 +93,77 @@
         padding-left: 20px;
       }
     }
+    
+  }
+  .telBox{
+    width: 100%;
+    margin: 20px 3%;
+    :global{
+      .am-list-item{
+        width: 79%;
+        input{
+          font-size: 13px;
+          padding: 0 5px;
+          height: 30px;
+          border: 1px solid rgb(87, 85, 85);
+        }
+      }
+      .am-button{
+        // flex: 1;
+        width: 15%;
+        height: 30px;
+        line-height: 30px;
+        font-size: 13px;
+        border: 1px solid rgb(87, 85, 85);
+      }
+    }
+  }
+  .telBox1{
+    margin: 20px 0 0 20px;
+  }
+  .tel{
+    width: 60%;
+    margin: 20px 0;
+    background-color: white;
+    box-shadow: 1px 2px 8px;
+    span{
+      float: right;
+      margin-right: 5px;
+    }
   }
 }
-
+// ==========================选择患者====================
+.patientBox{
+  margin-bottom: 60px;
+  .listBox{
+    display: flex;
+    width: 100%;
+    &:hover{
+      background-color: #F2F2F2;
+    }
+    height: 60px;
+    img{
+      width: 40px;
+      height: 40px;
+      margin: 10px 20px;
+    }
+    .patInfo{
+      width: 90%;
+      p{
+        margin: 10px;
+        span{
+          margin-left: 20px;
+        }
+      }
+    }
+    .time{
+      line-height: 60px;
+      width: 50%;
+      margin-right: 10px;
+    }
+    .radio{
+      width: 5%;
+      margin: 10px 15px 0 0;
+    }
+  }
+}

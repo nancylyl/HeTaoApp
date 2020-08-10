@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import styles from './start.module.scss'
 import { Icon, Button, DatePicker, List, InputItem, ActionSheet, Toast } from 'antd-mobile';
 import { createForm } from 'rc-form';
-
+import ChooseDoc from './ChooseDoc';
+import ChoosePatient from './ChoosePatient';
+import moment from "moment";
 const createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();//返回上一页这段代码
 const nowTimeStamp = Date.now();
@@ -15,28 +17,14 @@ class StartDIscuss extends Component {
         this.state = {
             list:'',
             dpValue: now,
-            formVal: ''
+            formVal: '',
+            selectList: '',
+            showDocList: false,
+            showPatList: false
         }
     }
-
     goback=()=>{
         history.goBack();
-    }
-    // 提交表单
-    onSubmit = () => {
-        console.log(this.props.form.validateFields());
-        
-        this.props.form.validateFields({ force: true }, (error) => {
-          if (!error) {
-            console.log(this.props.form.getFieldsValue());
-          } else {
-            console.log(error);
-            alert('Validation failed');
-          }
-        });
-    }
-    prompt = () => {
-        Toast.fail("输入框不能为空", 1)
     }
     // 时间验证
     // validateDatePicker = (rule, date, callback) => {
@@ -47,14 +35,20 @@ class StartDIscuss extends Component {
     //     }
     // }  
 
-    // 选择医生
+   /*  选择医生 */
     chooseDoc = () => {
+        this.docListVisible(true)
+    }
+    docListVisible = (showDocList) => {
         this.setState({
-            formVal: this.props.form.validateFields()
+            showDocList
         })
-        console.log(this.state.formVal);
-        // this.props.navigate("/doc/chooseDoc", { onSelect: this.state.formVal });
-        this.props.history.push('/doc/chooseDoc');
+    }
+    docListOk = (val) => {
+        this.props.form.setFieldsValue({
+            inviteGuests: val.toString()
+        })
+        this.docListVisible(false)
     }
     // 费用类型选择
     showActionSheet = () => {
@@ -81,19 +75,49 @@ class StartDIscuss extends Component {
         >费用</InputItem>
         }
     }
+    /* 选择患者 */
+    choosePat=()=>{
+        this.patListVisible(true)
+    }
+    patListVisible=(showPatList)=>{
+        this.setState({
+            showPatList
+        })
+    }
+    patListOk = (val) => {
+        this.props.form.setFieldsValue({
+            patietInfo: val
+        })
+        this.patListVisible(false)
+    }
     //  得到提交按钮
     chooseBtn = () => {
         let list = this.props.form.getFieldsValue()
-        // console.log(this.state.formVal);
         for(var item in list){
-            if(list[item]==undefined){
+            if(list[item]==undefined||list[item]==''){
                 return <Button style={{backgroundColor:'rgb(209, 207, 207)'}} className={styles.button} onClick={this.prompt}>确认发起</Button>
             }
         }
         return <Button type="primary" className={styles.button} onClick={this.onSubmit}>确认发起</Button>        
     }
- 
+    // 提交表单
+    onSubmit = () => {
+        console.log(this.props.form.getFieldsValue());
+        
+        this.props.form.validateFields({ force: true }, (error) => {
+        if (!error) {
+            console.log(this.props.form.getFieldsValue());
+        } else {
+            console.log(error);
+            alert('Validation failed');
+        }
+        });
+    }
+    prompt = () => {
+        Toast.fail("输入框不能为空", 1)
+    }
     render() {
+        const { showDocList,showPatList } = this.state
         const { getFieldProps, getFieldError } = this.props.form;
         return (
             <div className={styles.bigBox}>
@@ -119,6 +143,7 @@ class StartDIscuss extends Component {
                             clear
                             onClick={this.chooseDoc}
                             editable={false}
+                           
                             {...getFieldProps('inviteGuests', {
                                 rules: [
                                 { required: true, message: '请选择' },
@@ -127,6 +152,7 @@ class StartDIscuss extends Component {
                         > 参会医生
                         </InputItem>
                         <DatePicker
+                        format='YYYY/MM/DD HH:mm'
                         {...getFieldProps('enrollStart', {
                             rules: [
                             { required: true, message: '请选择' },
@@ -187,8 +213,8 @@ class StartDIscuss extends Component {
                         <InputItem
                             placeholder="请选择"
                             clear
-                            // onClick={this.choosePat}
-                            // editable={false}
+                            onClick={this.choosePat}
+                            editable={false}
                             // value={this.state.patietInfo}
                             {...getFieldProps('patietInfo', {
                                 rules: [
@@ -217,6 +243,16 @@ class StartDIscuss extends Component {
                 <div className={styles.btns}>
                     {this.chooseBtn()}
                 </div>
+                <ChooseDoc
+                visible={showDocList}
+                onClose={this.docListVisible}
+                onOk={this.docListOk}
+                />
+                <ChoosePatient
+                visible={showPatList}
+                onClose={this.patListVisible}
+                onOk={this.patListOk}
+                />
             </div>
         )
         

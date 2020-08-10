@@ -18,7 +18,7 @@ import { Icon } from 'antd-mobile';
  */
 export default class index extends PureComponent {
   render () {
-    const { title, okText = '保存', onClose, onOk = null, visible } = this.props;
+    const { title, okText, onClose, onOk = null, visible } = this.props;
     return (
       visible ? <div
         className={styles.drawer}

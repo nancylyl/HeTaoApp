@@ -88,6 +88,7 @@ export default class MedicinesList extends PureComponent {
       title='选择药物'
       onClose={this.onClose}
       onOk={onOk}
+      okText = '保存'
     >
       <SearchBar
         placeholder="请输入要搜索的药名"
