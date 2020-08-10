@@ -12,34 +12,11 @@ import PLogin from './pages/Patient/Login'
 import medicalRecord from './pages/Patient/medicalRecord/medicalRecord'
 import Error from './components/Error'
 import Discuss from './pages/Doc/Home/discuss/Discuss'
-<<<<<<< HEAD
-=======
-
->>>>>>> 5bc1d35da81280f766e46fbe2b80060624cf7abe
 import activities from './pages/Doc/Home/activities/activities'
 
 import Patient from './pages/Doc/Patient/Patient';
 import News from './pages/Doc/News/News';
 import MyInfo from './pages/Doc/MyInfo';
-<<<<<<< HEAD
-=======
-
-import DiscussDetails from './pages/Doc/Home/discuss/DiscussDetails'
-
-import DocMyPatient from './pages/Doc/MyPatient/'
-import DocMyPatientDetail from './pages/Doc/MyPatient/Components/PatientDetail'//患者详情
-import DocMyPatientPersonInfo from './pages/Doc/MyPatient/Components/PersonInfo'
-import DocMyPatientRecordLogDetail from './pages/Doc/MyPatient/Components/PatientDetail/PatientRecordLogDetail'
-import DocMyPatientList from './pages/Doc/MyPatient/Components/PatientList' //我的所有患者
-
-import JionDiscuss from './pages/Doc/Home/discuss/JionDiscuss';
-import StartDIscuss from './pages/Doc/Home/startDIscuss/StartDIscuss';
-import ChooseDoc from './pages/Doc/Home/startDIscuss/ChooseDoc';
-// import Patient from './pages/Doc/Patient/Patient';
-// import News from './pages/Doc/News/News';
-// import MyInfo from './pages/Doc/MyInfo';
-
->>>>>>> 5bc1d35da81280f766e46fbe2b80060624cf7abe
 
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
@@ -60,15 +37,6 @@ function App () {
           <Route path="/doc" exact render={() => <Redirect to={'/Doc/home/index'} />}></Route>
           <Route path="/doc/discuss" component={Discuss}></Route>
           <Route path="/doc/activities" component={activities}></Route>
-<<<<<<< HEAD
-=======
-          <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
-          <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
-          <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
-          <Route path="/doc/chooseDoc" component={ChooseDoc}></Route>
-
-
->>>>>>> 5bc1d35da81280f766e46fbe2b80060624cf7abe
           <Route
             path="/doc"
             render={() => (
@@ -77,14 +45,6 @@ function App () {
                 <Route path="/doc/patient" component={Patient}></Route>
                 <Route path="/doc/news" component={News}></Route>
                 <Route path="/doc/myInfo/index" component={MyInfo}></Route>
-<<<<<<< HEAD
-=======
-                <Route path="/doc/home/mypatient" exact component={DocMyPatient} />
-                <Route path="/doc/home/mypatientdetail/:id" exact component={DocMyPatientDetail} />
-                <Route path="/doc/home/mypatientRecordLogdetail/:id" exact component={DocMyPatientRecordLogDetail} />
-                <Route path="/doc/home/mypatientpesoninfo/:uId" exact component={DocMyPatientPersonInfo} />
-                <Route path="/doc/mypatient/components/patientlist/:flag" exact component={DocMyPatientList} />{/* 我的所有患者 */}
->>>>>>> 5bc1d35da81280f766e46fbe2b80060624cf7abe
               </DocIndex>
             )}
           >
