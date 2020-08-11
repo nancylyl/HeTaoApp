@@ -150,14 +150,13 @@ export default class ChooseDoc extends PureComponent {
       var telStr = tel.toString()
       console.log(telStr.indexOf(value));
       if (telStr.indexOf(value) < 0) {
+        Toast.info('添加成功');
         tel.push(value)
         obj.push(value)
       }else{
         Toast.info('该电话已存在');
       }
     }
-    console.log(tel);
-    console.log(obj);
     this.setState({
       checkedData: obj,
       telList: tel,

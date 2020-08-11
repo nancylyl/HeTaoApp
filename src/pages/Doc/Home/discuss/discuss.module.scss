@@ -65,19 +65,21 @@
   width: 100%;
 }
 .list{
+  
   padding: 15px;
   margin-bottom: 6px;
   background-color: #fff;
   h1{
     margin-bottom: 10px;
-    font-weight: 500;
-    font-size: 16px;
+    font-weight: 700;
+    // font-size: 15px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
   }
  
   p{
+    font-size: 13px;
     padding-bottom: 5px;
     &:first-of-type{
       margin-bottom: 10px;
@@ -89,7 +91,7 @@
     span{
       float: right;
       margin-right: 15px;
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 }

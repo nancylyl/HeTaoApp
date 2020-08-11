@@ -35,6 +35,7 @@ import DocMyPatientList from './pages/Doc/MyPatient/Components/PatientList' //æˆ
 
 import JionDiscuss from './pages/Doc/Home/discuss/JionDiscuss';
 import StartDIscuss from './pages/Doc/Home/startDIscuss/StartDIscuss';
+import Success from './pages/Doc/Home/startDIscuss/Success';
 
 // import Patient from './pages/Doc/Patient/Patient';
 // import News from './pages/Doc/News/News';
@@ -65,7 +66,7 @@ function App () {
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
- 
+          <Route path="/doc/success" component={Success}></Route>
 
           <Route path="/doc/MyInfo/AccountInf" component={AccountInf}></Route>
 
