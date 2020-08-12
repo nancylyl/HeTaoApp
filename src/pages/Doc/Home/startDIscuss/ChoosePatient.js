@@ -95,14 +95,15 @@ export default class ChoosePatient extends Component {
                 onClose={this.onClose}
                 onOk={this.onSearch}
                 okText = '搜索'
-                >
-                <div className={styles.patientBox}>
+            >
+                <div className={styles.patientList}>
+                    <div className={styles.patientBox}>
                     {loaded && this.getPatList()}
+                    </div>
+                    <div className={styles.btns}>
+                        {this.okBtn()}
+                    </div> 
                 </div>
-                <div className={styles.btns}>
-                    {this.okBtn()}
-                </div> 
-                
             </Drawer>
         )
     }
