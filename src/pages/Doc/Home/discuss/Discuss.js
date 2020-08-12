@@ -4,6 +4,7 @@ import moment from 'moment';
 import { Carousel, Icon, Tabs, Badge } from 'antd-mobile';
 import Axios from '../../../../util/axios'
 import Api from '../../../../api/index'
+
 const createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();//返回上一页这段代码
 
@@ -26,9 +27,10 @@ export default class Discuss extends Component {
         Axios({
           url: Api.discuss.getDiscussList,
           params: {
-            status: '已结束',
+            id: 1,
           },
-          isDev: 0
+          // isDev: 1,
+          method: "get",
         })
           .then((res) => {
             // console.log(res)
@@ -48,7 +50,7 @@ export default class Discuss extends Component {
       this.props.history.push('/doc/discussDetails',{data:param});
     }
     goback=()=>{
-        history.goBack();
+      this.props.history.push('/doc')
     }
     renderContent = tab =>(
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',  }}>
@@ -68,8 +70,8 @@ export default class Discuss extends Component {
             // console.log();
             return <div key={index} className={styles.list} onClick={this.goToUrl.bind(this,item)}>
                     <h1>{item.discussName}</h1>
-                    <p>{item.DiscussionDescription}</p>
-                    <p>参会主持：{item.doctoId}&nbsp;|&nbsp;{item.hospital}{item.subject}{item.profession}</p>
+                    <p>{item.explain}</p>
+                    {/* <p>参会主持：{item.doctor[0].name}&nbsp;|&nbsp;{item.doctor[0].hospital}{item.doctor[0].subject}{item.doctor[0].profession}</p> */}
                     <p>时间：{moment(item.discussStart).format('YY/MM/DD')}</p>
                     <p>已报名人数：{item.bNumber}人&nbsp;&nbsp;（{item.joinNumber}人）<span>{item.chargeType}</span></p>
                 </div>

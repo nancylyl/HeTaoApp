@@ -4,7 +4,10 @@ import { Icon, Button, DatePicker, List, InputItem, ActionSheet, Toast } from 'a
 import { createForm } from 'rc-form';
 import ChooseDoc from './ChooseDoc';
 import ChoosePatient from './ChoosePatient';
-import moment from "moment";
+import SponsorDiscuss from './SponsorDiscuss';
+
+
+
 const createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();//返回上一页这段代码
 const nowTimeStamp = Date.now();
@@ -15,12 +18,13 @@ class StartDIscuss extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            list:'',
             dpValue: now,
             formVal: '',
             selectList: '',
             showDocList: false,
-            showPatList: false
+            showPatList: false,
+            showSponsor: false,
+            sponsorValue: ''
         }
     }
     goback=()=>{
@@ -60,16 +64,16 @@ class StartDIscuss extends Component {
         },
         (buttonIndex) => {
             this.props.form.setFieldsValue({
-                moneyType:BUTTONS[buttonIndex] 
+                chargeType:BUTTONS[buttonIndex] 
             })
         });
       }
     // 是否需要使用核桃币
     attendMoney = () => {
-        let type = this.props.form.getFieldValue('moneyType');
+        let type = this.props.form.getFieldValue('chargeType');
         if(type == '收费'|| type == '给予奖励'){
             return <InputItem placeholder="请输入费用" extra="核桃币" clear
-            {...this.props.form.getFieldProps('AttendMoney', {
+            {...this.props.form.getFieldProps('attendMoney', {
                 rules: [{ required: true, message: '请选择' },],
             })}
         >费用</InputItem>
@@ -90,6 +94,7 @@ class StartDIscuss extends Component {
         })
         this.patListVisible(false)
     }
+
     //  得到提交按钮
     chooseBtn = () => {
         let list = this.props.form.getFieldsValue()
@@ -103,21 +108,41 @@ class StartDIscuss extends Component {
     // 提交表单
     onSubmit = () => {
         console.log(this.props.form.getFieldsValue());
-        
-        this.props.form.validateFields({ force: true }, (error) => {
-        if (!error) {
-            console.log(this.props.form.getFieldsValue());
-        } else {
-            console.log(error);
-            alert('Validation failed');
+        let type = this.props.form.getFieldValue('chargeType');
+        if (type=='给予奖励') {
+            this.setState({
+                sponsorValue: this.props.form.getFieldsValue(),
+                showSponsor: true
+            })
+        }else{
+            this.setState({
+                sponsorValue: this.props.form.getFieldsValue(),
+            },()=>{
+                this.props.history.push('/doc/success',{data:this.state.sponsorValue})
+            })
         }
-        });
+        
+        // this.props.form.validateFields({ force: true }, (error) => {
+        // if (!error) {
+        //     console.log(this.props.form.getFieldsValue());
+        // } else {
+        //     console.log(error);
+        //     alert('Validation failed');
+        // }
+        // });
     }
     prompt = () => {
         Toast.fail("输入框不能为空", 1)
     }
+    sponsorVisible = (showSponsor) => {
+        this.setState({
+            showSponsor
+        })
+    }
+
+
     render() {
-        const { showDocList,showPatList } = this.state
+        const { showDocList, showPatList, showSponsor, sponsorValue } = this.state
         const { getFieldProps, getFieldError } = this.props.form;
         return (
             <div className={styles.bigBox}>
@@ -152,7 +177,6 @@ class StartDIscuss extends Component {
                         > 参会医生
                         </InputItem>
                         <DatePicker
-                        format='YYYY/MM/DD HH:mm'
                         {...getFieldProps('enrollStart', {
                             rules: [
                             { required: true, message: '请选择' },
@@ -200,7 +224,7 @@ class StartDIscuss extends Component {
                             clear
                             onClick={this.showActionSheet}
                             editable={false}
-                            {...getFieldProps('moneyType', {
+                            {...getFieldProps('chargeType', {
                                 rules: [
                                 { required: true, message: '请选择' },
                                 ],
@@ -244,15 +268,20 @@ class StartDIscuss extends Component {
                     {this.chooseBtn()}
                 </div>
                 <ChooseDoc
-                visible={showDocList}
-                onClose={this.docListVisible}
-                onOk={this.docListOk}
+                    visible={showDocList}
+                    onClose={this.docListVisible}
+                    onOk={this.docListOk}
                 />
                 <ChoosePatient
-                visible={showPatList}
-                onClose={this.patListVisible}
-                onOk={this.patListOk}
+                    visible={showPatList}
+                    onClose={this.patListVisible}
+                    onOk={this.patListOk}
                 />
+                {showSponsor&&<SponsorDiscuss
+                    visible={showSponsor}
+                    onClose={this.sponsorVisible}
+                    value= {sponsorValue}
+                />}
             </div>
         )
         
