@@ -1,6 +1,7 @@
 
 export default {
-    // getDiscussList: '/api/discussInfo',
-    getDiscussList: '/Discussion/selectGR',
+    getChooseDoc: '/api/index/getChooseDoc',
+    getDiscussList: '/api/discussInfo',
+    // getDiscussList: '/Discussion/selectGR',
     // getDiscussList: '/Discussion/select',
   }

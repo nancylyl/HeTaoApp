@@ -3,101 +3,49 @@ import _ from 'lodash';
 import styles from './start.module.scss'
 import { Tabs, Checkbox, InputItem, Button, Flex, Toast } from 'antd-mobile';
 import Drawer from 'components/Drawer';
-
+import Axios from 'util/axios'
+import Api from 'api/index'
 
 export default class ChooseDoc extends PureComponent {
   constructor(props) {
       super(props);
       this.state = { 
-          tabs :  [
-              {
-                title: '北京癫痫病医院',
-                value: '1',
-                key: '1',
-                children: [
-                  {
-                    title: '林明',
-                    value: '1-1',
-                    key: '1-1',
-                  },
-                  {
-                    title: '陈杰',
-                    value: '1-2',
-                    key: '1-2',
-                  },
-                  {
-                    title: '郝丽',
-                    value: '1-3',
-                    key: '1-3',
-                  },
-                ],
-              },
-              {
-                title: '癫痫总院',
-                value: '2',
-                key: '2',
-                children: [
-                  {
-                    title: '何芳',
-                    value: '2-1',
-                    key: '2-1',
-                  },
-                  {
-                    title: '杨超',
-                    value: '2-2',
-                    key: '2-2',
-                  },
-                  {
-                    title: '冯静',
-                    value: '2-3',
-                    key: '2-3',
-                  },
-                  {
-                    title: '陈艳',
-                    value: '2-4',
-                    key: '2-4',
-                  },
-                  {
-                    title: '侯磊',
-                    value: '2-5',
-                    key: '2-5',
-                  },
-                ],
-              },
-              {
-                title: '上海癫痫病医院',
-                value: '3',
-                key: '3',
-                children: [
-                  {
-                    title: '孙敏',
-                    value: '3-1',
-                    key: '3-1',
-                  },
-                  {
-                    title: '刘勇',
-                    value: '3-2',
-                    key: '3-2',
-                  }
-                ],
-              },
-              {
-                  title: '手机号搜索',
-                  key: 'phone'
-              }
-            ],
+          tabs : [],
           loaded: false,
           checkedData:[],
           telList:[],
           value: '',
           telLoad: false,
-
       }
   }
+  // 调接口获得医生数据
+  init() {
+    Axios({
+      url: Api.discuss.getChooseDoc
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.data.success) {
+          this.setState({
+            tabs: res.data.data,
+            loaded: true
+          })
+          let tabs = _.cloneDeep(this.state.tabs);
+          tabs.push({
+            title: '手机号搜索',
+            key: 'phone'
+          })
+          this.setState({
+            tabs: tabs,
+          },()=>{
+            console.log(this.state.tabs);
+          });
+        } else {
+        }
+      })
+  }
   componentDidMount() {
-      this.setState({
-          loaded: true,
-      });
+      this.init();     
     }
   renderContent = tab =>(
       <div style={{ display: 'flex',width: "100%", justifyContent: 'space-between',  }}>
@@ -145,16 +93,16 @@ export default class ChooseDoc extends PureComponent {
     let tel = _.cloneDeep(telList);
     let obj = _.cloneDeep(checkedData);
     if (value.replace(/\s/g, '').length < 11) {
-      Toast.info('请输入11位手机号码');
+      Toast.info('请输入11位手机号码',0.7);
     } else {
       var telStr = tel.toString()
       console.log(telStr.indexOf(value));
       if (telStr.indexOf(value) < 0) {
-        Toast.info('添加成功');
+        Toast.info('添加成功',0.7);
         tel.push(value)
         obj.push(value)
       }else{
-        Toast.info('该电话已存在');
+        Toast.info('该电话已存在',0.7);
       }
     }
     this.setState({
@@ -162,7 +110,7 @@ export default class ChooseDoc extends PureComponent {
       telList: tel,
       telLoad: true,
     })
-
+    this.init();
   }
   delTel = (val) => {
     const { checkedData, telList } = this.state
@@ -174,6 +122,7 @@ export default class ChooseDoc extends PureComponent {
       checkedData: obj,
       telList: tel,
     })
+    this.init();
   }
   // 从医生列表选择医生
   getDocList = (key) => {
