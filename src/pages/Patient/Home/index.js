@@ -19,6 +19,7 @@ export default class index extends Component {
     lastonsetCount: 1,//上次发作次数
     time: 0,
     badType: [],
+    data: ['1', '2', '3'],
     activityModel: [],
     activityList: [
       {
@@ -51,7 +52,8 @@ export default class index extends Component {
         state: 2,
         stateName: '已报名'
       }
-    ]
+    ],
+    carouselList: []//轮播图
   };
   showModal = (key, item) => (e) => {
     const state = item.state;
@@ -116,6 +118,8 @@ export default class index extends Component {
   init () {
     //发作次数
     this.getCheckTime()
+    //轮播图
+    this.getCarouselList()
 
   }
   getCheckTime () {
@@ -135,6 +139,22 @@ export default class index extends Component {
             lastonsetCount: time
           })
         }
+
+      })
+      .finally(() => {
+      })
+
+  }
+  getCarouselList () {
+    Axios({
+      isDev: 1,
+      url: "/bannerManage/showOff",
+    })
+      .then((res) => {
+        console.log(res);
+        this.setState({
+          carouselList: res.data.data
+        })
 
       })
       .finally(() => {
@@ -176,7 +196,9 @@ export default class index extends Component {
       })
         .then((res) => {
           console.log(res);
-
+          this.setState({
+            lastonsetCount: this.state.onsetCount
+          })
         })
         .finally(() => {
         })
@@ -189,24 +211,40 @@ export default class index extends Component {
     });
   }
   render () {
-    const { activityList, activityModel, isRecord, isRecordModal, onsetCount, lastonsetCount } = this.state
+    const { activityList, activityModel, isRecord, isRecordModal, onsetCount, lastonsetCount, carouselList } = this.state
+    console.log(carouselList);
     return (
       <div className={styles["big-box"]} >
         <div className={styles.topTitle}>核桃仁</div>
-        <Carousel autoplay>
-          <div className={styles.banner}>
-            <h3 >1</h3>
-          </div>
-          <div className={styles.banner}>
-            <h3>2</h3>
-          </div>
-          <div className={styles.banner}>
-            <h3>3</h3>
-          </div>
-          <div className={styles.banner}>
-            <h3 >4</h3>
-          </div>
+
+        {carouselList.length > 0 && <Carousel
+          autoplay
+          infinite
+        >
+          {
+            carouselList.map((val, index) => (
+              <a
+                key={index}
+                href="http://www.alipay.com"
+                style={{ display: 'inline-block', width: '100%', height: "40vw" }}
+              >
+                <img
+                  src={val.imgurl}
+                  alt=""
+                  style={{ width: '100%', verticalAlign: 'top' }}
+                  onLoad={() => {
+                    // fire window resize event to change height
+                    window.dispatchEvent(new Event('resize'));
+                    this.setState({ imgHeight: 'auto' });
+                  }}
+                />
+              </a>
+            ))
+          }
         </Carousel>
+        }
+
+
         <div className={styles.quick}>
           <Button icon={<i className={['iconfont  icon-zhaoxiangji']} />} className={styles.bottom} onClick={() => { this.onRecord(1) }} >拍照记录</Button>
           <Button icon={<i className={['iconfont icon-50']} />} className={styles.bottom} onClick={() => { this.onRecord(3) }} >纪录发作次数</Button>

@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.boxc{
+    margin: auto;
+
+}
+.theSys {
+    padding:  5px  10px;
+}
+.theSys .line1 {
+    margin-top: 20px;
+}
+ .theline2 {
+    margin-bottom: 20px;
+}
+ .line1 div {
+     /* width: 300px; */
+
+     border: 1px solid white;
+     text-align: center;
+     /*line-height: 40px;*/
+     background-color: white;
+     line-height: 35px;
+     padding-top: 5px;
+ }

@@ -66,11 +66,8 @@ function App () {
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
-<<<<<<< HEAD
 
-=======
           <Route path="/doc/success" component={Success}></Route>
->>>>>>> e06cc3e2f5a40fa5c7ca9a0c4bbeae22cb028c7b
 
           <Route path="/doc/MyInfo/AccountInf" component={AccountInf}></Route>
 
