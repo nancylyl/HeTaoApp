@@ -13,38 +13,57 @@ export default class Discuss extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          data: [{title: 1,},{title: 2,},{title: 3,},{title: 4,}],
           tabs: [
             {id: 1, title: <Badge> <div className={styles.circle}></div> 全部病历探讨</Badge>, key: 't1' },
             {id: 2, title: <Badge> <div className={styles.circle}></div> 我的探讨</Badge>, key: 't2' },
           ],
-          discussList: [],
-          loaded: false
+          discussList: [], // 病历探讨
+          loaded: false,
+          carouselList: []//轮播图
         }
     }
 
     into() {
+      Axios({
+        url: Api.discuss.getDiscussList,
+        params: {
+          id: 1,
+        },
+        // isDev: 1,
+        method: "get",
+      })
+        .then((res) => {
+          console.log(res)
+          if (res.status== 200) {
+            this.setState({
+              discussList: res.data.data,
+              loaded: true,
+            })
+          } else {
+          }
+        })
+      }
+      getCarouselList () {
         Axios({
-          url: Api.discuss.getDiscussList,
-          params: {
-            id: 1,
-          },
-          // isDev: 1,
-          method: "get",
+          isDev: 1,
+          url: "/bannerManage/showOff",
         })
           .then((res) => {
-            console.log(res)
-            if (res.status== 200) {
-              this.setState({
-                discussList: res.data.data,
-                loaded: true,
-              })
-            } else {
-            }
+            console.log(res);
+            this.setState({
+              carouselList: res.data.data
+            })
+    
           })
+          .finally(() => {
+          })
+    
       }
+    
     componentDidMount() {
       this.into();
+      //轮播图
+      this.getCarouselList()
     }
     goToUrl =(param)=>{
       this.props.history.push('/doc/discussDetails',{data:param});
@@ -84,37 +103,37 @@ export default class Discuss extends Component {
       this.props.history.push('/doc/startDiscuss');
     }
     render() {
+        const { carouselList } = this.state
         return (
             <div className={styles.bigBox}>
                 <div className={styles.topTitle}><Icon type={'left'}  className={styles.icon} onClick={this.goback}/>病历探讨</div>
-                <Carousel
-                    autoplay
-                    infinite
-                    // beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                    // afterChange={index => console.log('slide to', index)}
-                    className={styles.banner}
-                    >
-                    {this.state.data.map(val => (
-                        <a
-                        key={val}
-                        href=""
-                        style={{ display: 'inline-block', width: '100%', height: '40vw' }}
-                        className={styles.img}
-                        >
-                        {val.title}
+                {carouselList.length > 0 && <Carousel
+                  autoplay
+                  infinite
+                  className={styles.banner}
+                >
+                  {
+                    carouselList.map((val, index) => (
+                      <a
+                        key={index}
+                        href="http://www.alipay.com"
+                        style={{ display: 'inline-block', width: '100%', height: "40vw" }}
+                      >
                         <img
-                            src=''
-                            alt=""
-                            style={{ width: '100%', verticalAlign: 'top' }}
-                            onLoad={() => {
+                          src={val.imgurl}
+                          alt=""
+                          style={{ width: '100%', verticalAlign: 'top' }}
+                          onLoad={() => {
                             // fire window resize event to change height
                             window.dispatchEvent(new Event('resize'));
                             this.setState({ imgHeight: 'auto' });
-                            }}
+                          }}
                         />
-                        </a>
-                    ))}
+                      </a>
+                    ))
+                  }
                 </Carousel>
+                }
                 <div className={styles.tabs}>
                     {this.state.loaded&&<Tabs tabs={this.state.tabs}
                             initialPage={'t1'}
