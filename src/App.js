@@ -24,6 +24,9 @@ import Patient from './pages/Doc/Patient/Patient';
 import News from './pages/Doc/News/News';
 import MyInfo from './pages/Doc/MyInfo';
 import AccountInf from './pages/Doc/MyInfo/AccountInf'//账户信息
+import Recharge from './pages/Doc/MyInfo/recharge'//账户充值信息
+import Detail from './pages/Doc/MyInfo/detail'//账户明细信息
+import rechargeS from './pages/Doc/MyInfo/rechargeS'//账户充值成功
 
 import DiscussDetails from './pages/Doc/Home/discuss/DiscussDetails'
 
@@ -65,11 +68,11 @@ function App () {
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
- 
 
           <Route path="/doc/MyInfo/AccountInf" component={AccountInf}></Route>
-
-
+          <Route path="/doc/MyInfo/recharge" component={Recharge}></Route>
+          <Route path="/doc/MyInfo/detail" component={Detail}></Route>
+          <Route path="/doc/MyInfo/rechargeS" component={rechargeS}></Route>
 
           <Route
             path="/doc"
