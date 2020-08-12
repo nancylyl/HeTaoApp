@@ -33,7 +33,7 @@ export default class Discuss extends Component {
           method: "get",
         })
           .then((res) => {
-            console.log(res)
+            // console.log(res)
             if (res.status== 200) {
               this.setState({
                 discussList: res.data.data,

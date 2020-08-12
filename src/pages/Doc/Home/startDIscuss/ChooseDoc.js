@@ -24,7 +24,6 @@ export default class ChooseDoc extends PureComponent {
       url: Api.discuss.getChooseDoc
     })
       .then((res) => {
-        console.log(res);
         if (res.data.success) {
           this.setState({
             tabs: res.data.data,
@@ -37,8 +36,6 @@ export default class ChooseDoc extends PureComponent {
           })
           this.setState({
             tabs: tabs,
-          },()=>{
-            console.log(this.state.tabs);
           });
         } else {
         }

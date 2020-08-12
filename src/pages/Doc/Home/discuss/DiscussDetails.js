@@ -14,7 +14,7 @@ class DiscussDetails extends Component {
         }
     }
     UNSAFE_componentWillMount() {
-        console.log(this.props.location.state.data);
+        // console.log(this.props.location.state.data);
         this.setState({
             details: this.props.location.state.data
         })
