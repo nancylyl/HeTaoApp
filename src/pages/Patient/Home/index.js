@@ -5,6 +5,7 @@ import { values } from 'mobx';
 // import { Link } from 'react-router-dom';
 // import { values } from 'mobx';
 // const prompt = Modal.prompt;
+import Axios from '../../../util/axios'
 const RadioItem = Radio.RadioItem;
 const alert = Modal.alert;
 
@@ -16,6 +17,8 @@ export default class index extends Component {
     isRecord: false,//本日是否发作
     onsetCount: 1,//发作次数
     lastonsetCount: 1,//上次发作次数
+    time: 0,
+    badType: [],
     activityModel: [],
     activityList: [
       {
@@ -76,7 +79,7 @@ export default class index extends Component {
       [key]: false,
     });
   }
-  onRecord(type) {
+  onRecord (type) {
     console.log(type);
 
     if (type == 1) {
@@ -105,8 +108,42 @@ export default class index extends Component {
   onChangeStepper = (val) => {
     this.setState({ onsetCount: val });
   }
+
+  componentWillMount () {
+    this.init();
+  }
+
+  init () {
+    //发作次数
+    this.getCheckTime()
+
+  }
+  getCheckTime () {
+    Axios({
+      isDev: 1,
+      url: "/patient/checkTime?P_ID=1",
+    })
+      .then((res) => {
+        // console.log(res);
+        let time = res.data.time
+        this.setState({
+          isRecord: time > 0 ? true : false,
+          onsetCount: time
+        })
+        if (time > 0) {
+          this.setState({
+            lastonsetCount: time
+          })
+        }
+
+      })
+      .finally(() => {
+      })
+
+  }
+
   //初始化
-  renderDate() {
+  renderDate () {
     const { activityList } = this.state
 
     return activityList.map((item) => {
@@ -133,13 +170,25 @@ export default class index extends Component {
 
   onRecordClose = (key, flag) => () => {
     if (flag == 2) {
+      Axios({
+        isDev: 1,
+        url: "/patient/addTime?P_ID=1&time=" + this.state.onsetCount,
+      })
+        .then((res) => {
+          console.log(res);
+
+        })
+        .finally(() => {
+        })
+
       Toast.info("纪录成功");
+
     }
     this.setState({
       [key]: false,
     });
   }
-  render() {
+  render () {
     const { activityList, activityModel, isRecord, isRecordModal, onsetCount, lastonsetCount } = this.state
     return (
       <div className={styles["big-box"]} >

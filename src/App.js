@@ -53,7 +53,7 @@ function App () {
           <Route path="/" exact render={() => <Redirect to={'/home'} />}></Route>
           <Route path="/home" exact component={Home}></Route>
           <Route path="/error" exact component={Error}></Route>
-          <Route path="/plogin" exact component={PLogin}></Route>
+          <Route path="/plogin/:flag" exact component={PLogin}></Route>
           <Route path="/PforgetPass/:flag" exact component={PForgetPass}></Route>
 
 
@@ -65,7 +65,7 @@ function App () {
           <Route path="/doc/discussDetails" component={DiscussDetails}></Route>
           <Route path="/doc/jionDiscuss" component={JionDiscuss}></Route>
           <Route path="/doc/startDiscuss" component={StartDIscuss}></Route>
- 
+
 
           <Route path="/doc/MyInfo/AccountInf" component={AccountInf}></Route>
 

@@ -49,8 +49,8 @@ class index extends PureComponent {
       });
     clearInterval(siv);
     //#endregion
-    userInfo = [{ "phoneNubmer": rphoneNubmer, "password": rpassword, "userCode": userCode }];
-    this.postUser(userInfo)
+    userInfo = { tel: rphoneNubmer, password: rpassword, vCode: userCode };
+    this.postUser(userInfo, 2)
 
   }
   clickLogin = () => {
@@ -74,10 +74,10 @@ class index extends PureComponent {
       return
     }
     //#endregion
-    userInfo = [{ "phoneNubmer": phoneNubmer, "password": password }];
-    this.postUser(userInfo)
+    userInfo = { tel: phoneNubmer, password: password };
+    this.postUser(userInfo, 1)
   }
-  postUser (userInfo) {
+  postUser (userInfo, isRegister) {
     const { isClick } = this.state
     if (isClick) {   //如果为true 开始执行
       this.setState({ isClick: false })   //将isClick 变成false，将不会执行处理事件
@@ -90,23 +90,41 @@ class index extends PureComponent {
     if (isClick) {
       let url = "";
       let goUrl = ""
-      const flag = this.props.match.params.flag
-      if (flag == 1) {
-        url = Api.patients.Login
-        goUrl = "/Patient"
+
+      // const flag = this.props.match.params.flag
+      // if (flag == 1) {
+      //   url = Api.patients.Login
+      //   goUrl = "/Patient"
+      // }
+
+      if (isRegister == 1) {
+        url = Api.patients.login
       }
+      else if (isRegister == 2) {
+        url = Api.patients.register
+      }
+
+
       console.log(userInfo)
       Axios({
-        url: Api.patients.login,
+        url: url,
         method: 'POST',
-        // isDev: 1,
-        data: { userInfo }
+        isDev: 1,
+        data: userInfo,
+        withCredentials: true
+        // data: { userInfo }
 
       })
         .then((res) => {
           console.log(res)
-          Toast.info("修改成功！");
-          // window.location.href = "/Patient/home/index"
+
+          if (res.data.code == "0") {
+            Toast.info("登录成功！");
+            window.location.href = "/Patient/home/index"
+          } else {
+            Toast.info(res.data.msg);
+          }
+          // 
 
         })
         .finally(() => {
@@ -120,14 +138,14 @@ class index extends PureComponent {
     let userInfo = this.props.form.getFieldsValue()
     const { rphoneNubmer } = userInfo
 
-    // if (rphoneNubmer == undefined) {
-    //   Toast.info("请输入您的手机号码");
-    //   return
-    // }
-    // if (!(/^1[3456789]\d{9}$/.test(rphoneNubmer))) {
-    //   Toast.info("请输入正确的手机号码");
-    //   return
-    // }
+    if (rphoneNubmer == undefined) {
+      Toast.info("请输入您的手机号码");
+      return
+    }
+    if (!(/^1[3456789]\d{9}$/.test(rphoneNubmer))) {
+      Toast.info("请输入正确的手机号码");
+      return
+    }
     this.setState({ loading: true });
 
     this.props.form.validateFields((err, values) => {
@@ -139,8 +157,9 @@ class index extends PureComponent {
     Axios({
       url: Api.patients.getCode,
       isDev: 1,
+      withCredentials: true,
       params: {
-        phoneNubmer: rphoneNubmer
+        tel: rphoneNubmer
       }
     })
       .then((res) => {

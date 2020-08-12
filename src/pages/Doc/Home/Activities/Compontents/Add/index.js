@@ -98,6 +98,7 @@ export default class index extends PureComponent {
           selected={chooseList}
           visible={isShow}
           onClose={this.onIsOpen}
+
           onChange={this.onChooseList}
           onOk={this.onChooseOK}
         />

@@ -1,8 +1,9 @@
 
 export default {
 
-  login: '/api/patient/login',
-  getCode: '/patient/login',
+  login: '/patient/login',
+  getCode: '/patient/sendMes',
+  register: "/patient/register",
   getMyPatientList: "/api/getMyPatientList"
 
 }
