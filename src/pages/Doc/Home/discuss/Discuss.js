@@ -4,6 +4,7 @@ import moment from 'moment';
 import { Carousel, Icon, Tabs, Badge } from 'antd-mobile';
 import Axios from '../../../../util/axios'
 import Api from '../../../../api/index'
+
 const createBrowserHistory = require("history").createBrowserHistory;
 const history = createBrowserHistory();//返回上一页这段代码
 
@@ -25,13 +26,15 @@ export default class Discuss extends Component {
     into() {
         Axios({
           url: Api.discuss.getDiscussList,
-          params: {
-            status: '已结束',
-          },
-          isDev: 0
+          // params: {
+          //   id: 1,
+          // },
+          // isDev: 1,
+          // method: "post",
+
         })
           .then((res) => {
-            // console.log(res)
+            console.log(res)
             if (res.status== 200) {
               this.setState({
                 discussList: res.data.data,
@@ -48,7 +51,7 @@ export default class Discuss extends Component {
       this.props.history.push('/doc/discussDetails',{data:param});
     }
     goback=()=>{
-        history.goBack();
+      this.props.history.push('/doc')
     }
     renderContent = tab =>(
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',  }}>
