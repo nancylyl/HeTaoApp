@@ -32,7 +32,7 @@ class DiscussDetails extends Component {
        }
     }
     toJion=()=>{
-        this.props.history.push('/doc/jionDiscuss',{data:this.state.details});
+        this.props.history.push('/doc/jionDiscuss',{data:this.state.details,title:"参与探讨"});
     }
     render() {
         const {details} = this.state
@@ -42,7 +42,7 @@ class DiscussDetails extends Component {
                 <div className={styles.content}>
                     <div>
                         <p>{details.discussName}</p>
-                        <p>会议持续时间：{details.continueTime*60}分钟</p>
+                        <p>会议持续时间：{details.continueTime}分钟</p>
                     </div>
                     <div>
                         <p>参会主持<span className={styles.right}>{details.doctoId}&nbsp;|&nbsp;{details.hospital}{details.subject}{details.profession}</span></p>

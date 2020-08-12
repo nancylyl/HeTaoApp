@@ -16,6 +16,7 @@
         top: 15px;
         left: 20px;
     }
+    
     p{
         float: right;
         margin-right: 25px;
@@ -164,6 +165,75 @@
     .radio{
       width: 5%;
       margin: 10px 15px 0 0;
+    }
+  }
+}
+
+// ==============================支付核桃币页面===========
+.Sponsor{
+  .right{
+    float: right;
+  }
+  p{
+    width: 92%;
+    margin: 0 auto;
+    padding: 15px 10px;
+  }
+  .context{
+    div:first-child{
+      p:first-child{
+        font-size: 16px;
+      }
+      .smallTitle{
+        padding: 0 10px 20px;
+        border-bottom: 1px solid rgb(202, 200, 200);
+      }
+    }
+  }
+  .jionMan{
+    background-color: #F2F2F2;
+    color: rgb(169, 171, 173);
+  }
+  .checkbox{
+    border-bottom: 1px solid rgb(202, 200, 200);
+    .check{
+      float: right;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+// ==============================成功页面===========
+.success{
+  background-color: white;
+  .okIcon{
+    // height: 100px;
+    margin-top: 45px;
+    text-align: center;
+    
+    img{
+      width: 80px;
+      margin: 20px 0 10px;
+    }
+  }
+  .okForm{
+    margin-top: 45px;
+    :global{
+        .am-list-extra{
+            font-size: 13px;
+        }
+        .am-input-label{
+            font-size: 13px;
+        }
+    }   
+    input{
+        text-align: right;
+        font-size: 13px;
+    }
+    .explain{
+        border: none;
+        resize:none;
+        width: 100%;
     }
   }
 }
