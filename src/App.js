@@ -59,7 +59,7 @@ function App () {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/plogin/login/:flag" exact component={PLogin}></Route>
+          <Route path="/plogin/:flag" exact component={PLogin}></Route>
           <Route path="/" exact render={() => <Redirect to={'/home'} />}></Route>
           <Route path="/home" exact component={Home}></Route>
           <Route path="/error" exact component={Error}></Route>
