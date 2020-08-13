@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { List, WhiteSpace, Button } from 'antd-mobile';
+import { WingBlank, WhiteSpace, Button } from 'antd-mobile';
 import styles from './style.module.scss';
 import echarts from 'echarts';
 import ReactEcharts from 'echarts-for-react'
@@ -13,11 +13,16 @@ export default class index extends PureComponent {
 
     return (
       <div>
-        <p>局灶性</p>
-        <p>辅助检查</p>
-        <p>发作频率</p>
-        <p>药物治疗</p>
-        <p>特殊治疗</p>
+        <WhiteSpace size="lg" />
+        <WingBlank size="md" className={styles.placeholder}>局灶性</WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="md" className={styles.placeholder}>辅助检查</WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="md" className={styles.placeholder}>发作频率</WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="md" className={styles.placeholder}>药物治疗</WingBlank>
+        <WhiteSpace size="lg" />
+        <WingBlank size="md" className={styles.placeholder}>特殊治疗</WingBlank>
       </div> 
     )
   }
