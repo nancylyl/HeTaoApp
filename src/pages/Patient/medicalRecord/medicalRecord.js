@@ -146,6 +146,7 @@ export default class index extends Component {
           </div>
           <div>
           <NavBar
+            className={styles["nav1"]}
             mode="light"
             rightContent={[
               <a className={styles["righta"]} onClick={() => {
