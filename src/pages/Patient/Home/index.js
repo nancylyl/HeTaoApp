@@ -212,7 +212,7 @@ export default class index extends Component {
   }
   render () {
     const { activityList, activityModel, isRecord, isRecordModal, onsetCount, lastonsetCount, carouselList } = this.state
-    console.log(carouselList);
+    //console.log(carouselList);
     return (
       <div className={styles["big-box"]} >
         <div className={styles.topTitle}>核桃仁</div>

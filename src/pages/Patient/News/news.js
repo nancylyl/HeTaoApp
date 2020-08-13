@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon, NavBar,Tabs, WhiteSpace, Badge} from "antd-mobile";
+import {Icon, NavBar,Tabs, WhiteSpace, Badge,WingBlank} from "antd-mobile";
 import './news.scss'
 
 const createBrowserHistory = require("history").createBrowserHistory;
@@ -57,70 +57,88 @@ class news extends React.Component {
                       onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
                 >
                     <div style={{ display: 'flex', flexWrap:'wrap', justifyContent: 'start', height: 'auto', backgroundColor: '#fff' }}>
-                        <div className='box'>
-                            <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
-                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                            <p>您已经2天没有写日志了请及时填写</p>
-                            <div>
-                                <Icon type='right' size='lg' color='#333333'></Icon>
-                                <p>11.15 11:02</p>
+                        <WingBlank>
+                            <div className='box'>
+                                <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                                <p>您已经2天没有写日志了请及时填写</p>
+                                <div>
+                                    <Icon type='right' size='lg' color='#e4e4e4'></Icon>
+                                    <p>11.15 11:02</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className='box'>
-                            <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
-                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                            <p>您的医生更新了病历请查看</p>
-                            <div>
-                                <Icon type='right' size='lg'></Icon>
-                                <p>11.15 11:02</p>
+                        </WingBlank>
+                        <WingBlank>
+                            <div className='box'>
+                                <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                                <p>您的医生更新了病历请查看</p>
+                                <div>
+                                    <Icon type='right' size='lg' color='#e4e4e4'></Icon>
+                                    <p>11.15 11:02</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className='box'>
-                            <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
-                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                            <p>唐马儒医生提示您该吃药了，如果已吃请记录！</p>
-                            <div>
-                                <Icon type='right' size='lg'></Icon>
-                                <p>11.15 11:02</p>
+                        </WingBlank>
+                        <WingBlank>
+                            <div className='box'>
+                                <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                                <p>唐马儒医生提示您该吃药了，如果已吃请记录！</p>
+                                <div>
+                                    <Icon type='right' size='lg' color='#e4e4e4'></Icon>
+                                    <p>11.15 11:02</p>
+                                </div>
                             </div>
-                        </div>
+                        </WingBlank>
                     </div>
                     <div style={{ display: 'flex', flexWrap:'wrap', justifyContent: 'start', height: 'auto', backgroundColor: '#fff' }}>
-                        <div className='box'>
-                            <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
-                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                            <p>唐马儒医生发布了患教活动请及时参加</p>
-                            <div>
-                                <Icon type='right' size='lg'></Icon>
-                                <p>11.15 11:02</p>
+                        <WingBlank>
+                            <div className='box'>
+                                <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                                <p>唐马儒医生发布了患教活动请及时参加</p>
+                                <div>
+                                    <Icon type='right' size='lg' color='#e4e4e4'></Icon>
+                                    <p>11.15 11:02</p>
+                                </div>
                             </div>
-                        </div>
+                        </WingBlank>
+
                     </div>
                     <div style={{ display: 'flex', flexWrap:'wrap', justifyContent: 'start', height: 'auto', backgroundColor: '#fff' }}>
-                        <div className='box'>
-                            <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
-                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                            <p>您的会员将在后天到期，请及时续费！</p>
-                            <div>
-                                <p className='box-date'>11.15 11:02</p>
+                        <WingBlank>
+                            <div className='box'>
+                                <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                                <p>您的会员将在后天到期，请及时续费！</p>
+                                <div>
+                                    <p className='box-date'>11.15 11:02</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className='box'>
-                            <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
-                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                            <p>您续费了1年的核桃会员</p>
-                            <div>
-                                <p className='box-date'>11.15 11:02</p>
+                        </WingBlank>
+
+                        <WingBlank>
+                            <div className='box'>
+                                <Badge dot style={{marginTop:20,display:this.state.display_name}}></Badge>
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                                <p>您续费了1年的核桃会员</p>
+                                <div>
+                                    <p className='box-date'>11.15 11:02</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className='box'>
-                            <Badge dot style={{marginTop:20,display:this.state.display_name}} ></Badge>
-                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                            <p>新版本上线了请及时更新</p>
-                            <div>
-                                <p className='box-date'>11.15 11:02</p>
+                        </WingBlank>
+
+                        <WingBlank>
+                            <div className='box'>
+                                <Badge dot style={{marginTop:20,display:this.state.display_name}} ></Badge>
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                                <p>新版本上线了请及时更新</p>
+                                <div>
+                                    <p className='box-date'>11.15 11:02</p>
+                                </div>
                             </div>
-                        </div>
+                        </WingBlank>
+
                     </div>
                 </Tabs>
             </div>

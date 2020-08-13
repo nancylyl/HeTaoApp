@@ -47,6 +47,11 @@ import Success from './pages/Doc/Home/startDIscuss/Success';
 import PatientMyPatientDetail from './pages/Patient/medicalRecord/comment'//患者详情
 import PatientMyPatientRecordLogDetail from './pages/Patient/medicalRecord/comment/PatientRecordLogDetail'
 
+import PatientMyinfo from './pages/Patient/myinfo'
+
+import Userinfo from './pages/Patient/myinfo/123/userinfo'
+import Diseaselog from './pages/Patient/myinfo/123/Diseaselog'
+import Mydoctor from './pages/Patient/myinfo/123/mydoctor'
 
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 function App () {
@@ -54,10 +59,11 @@ function App () {
     <div className="App">
       <Router>
         <Switch>
+          <Route path="/plogin/login/:flag" exact component={PLogin}></Route>
           <Route path="/" exact render={() => <Redirect to={'/home'} />}></Route>
           <Route path="/home" exact component={Home}></Route>
           <Route path="/error" exact component={Error}></Route>
-          <Route path="/plogin/:flag" exact component={PLogin}></Route>
+
           <Route path="/PforgetPass/:flag" exact component={PForgetPass}></Route>
 
 
@@ -100,15 +106,22 @@ function App () {
           </Route>
           <Route
             path="/patient"
+
             render={() => (
               <PatientIndex>
                 <Route path="/patient/home/index" exact component={PatientHomeIndex} />
                 <Route path="/patient/photo/index" exact component={PatientPhoto} />
                 <Route path="/patient/badfeel/index" exact component={PatientBadFeel} />
                 <Route path="/patient/recordLog/index" exact component={PRecordLog} />
-                <Route path="/patient/medicalRecord" exact component={medicalRecord}></Route>
+
                 <Route path="/patient/medicalRecord/:id" exact component={PatientMyPatientDetail} />
+                <Route path="/patient/medicalRecord" exact component={medicalRecord}></Route>
                 <Route path="/patient/news" component={news}></Route>
+
+                <Route path="/patient/myinfo/index" exact component={PatientMyinfo} />
+                <Route path="/patient/myinfo/123/userinfo" exact component={Userinfo} />
+                <Route path="/patient/myinfo/123/Diseaselog" exact component={Diseaselog} />
+                <Route path="/patient/myinfo/123/Mydoctor" exact component={Mydoctor} />
               </PatientIndex>
             )}
           ></Route>

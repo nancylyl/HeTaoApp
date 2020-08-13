@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Badge, Icon, NavBar, Tabs} from "antd-mobile";
+import {Badge, Icon, NavBar, Tabs,WingBlank} from "antd-mobile";
 import '../../Patient/News/news.scss'
 import './MyInfo.scss'
 export default class index extends Component {
@@ -14,6 +14,7 @@ export default class index extends Component {
                 >我的
                 </NavBar>
                 <div style={{ display: 'flex', flexWrap:'wrap', justifyContent: 'start', height: 'auto', backgroundColor: '#fff' }}>
+
                     <div className='Box'>
                         <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
                         <p>小明</p>
@@ -32,29 +33,38 @@ export default class index extends Component {
                             <p>29</p>
                         </div>
                     </div>
-                    <div className='box' onClick={() => {
-                        this.props.history.push("/doc/MyInfo/AccountInf")
-                    }}>
-                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                        <p>账户信息</p>
-                        <div>
-                            <Icon type='right' size='lg'></Icon>
+                    <WingBlank>
+                        <div className='box' onClick={() => {
+                            this.props.history.push("/doc/MyInfo/AccountInf")
+                        }}>
+                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                            <p>账户信息</p>
+                            <div>
+                                <Icon type='right' size='lg' color='#e4e4e4'></Icon>
+                            </div>
                         </div>
-                    </div>
-                    <div className='box'>
-                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                        <p>设置</p>
-                        <div>
-                            <Icon type='right' size='lg'></Icon>
+                    </WingBlank>
+
+                    <WingBlank>
+                        <div className='box'>
+                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                            <p>设置</p>
+                            <div>
+                                <Icon type='right' size='lg' color='#e4e4e4'></Icon>
+                            </div>
                         </div>
-                    </div>
-                    <div className='box'>
-                        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
-                        <p>关于我们</p>
-                        <div>
-                            <Icon type='right' size='lg'></Icon>
+                    </WingBlank>
+
+                    <WingBlank>
+                        <div className='box'>
+                            <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3292949583,636505648&fm=26&gp=0.jpg" alt=""/>
+                            <p>关于我们</p>
+                            <div>
+                                <Icon type='right' size='lg' color='#e4e4e4'></Icon>
+                            </div>
                         </div>
-                    </div>
+                    </WingBlank>
+
                 </div>
             </div>
         )

@@ -5,6 +5,7 @@ const tabs = [
   { title: '用户端', key: 1 },
   { title: '医生端', key: 2 }
 ];
+
 export default class Home extends PureComponent {
   constructor(props) {
     super(props);
@@ -21,7 +22,7 @@ export default class Home extends PureComponent {
     }
 
   })
-  render() {
+  render () {
     return (
       <div >
         <div className={styles.content}>

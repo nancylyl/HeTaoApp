@@ -81,7 +81,7 @@ class index extends PureComponent {
         if (res.data.code == "0") {
 
           this.setState({
-            badType: res.data.badType,
+            badType: res.data.badType == null ? [] : res.data.badType,
             loaded: true
           })
           console.log(this.state.badType);
