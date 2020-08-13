@@ -1,52 +1,81 @@
 
-body{
-    background-color:#F2F2F2;
-    margin: 0;
-    padding: 0;
-  }
-  .big-box{
+// body{
+//     background-color:#F2F2F2;
+//     margin: 0;
+//     padding: 0;
+//   }
+//   .big-box{
     
-    margin-bottom: 60px;
-    .topTitle{
-      text-align: center;
-      font-size: 14px;
-      line-height: 45px;
-      background-color: #fff;
-      width: 100%;
-      border: 1px solid black;
-      position: relative;
-    }
-    .input{
-      width: 100%;
-      height: 400px;
-      word-break:break-all
-    }
-    .button{
-      width: 100%;
-      height: 80px;
-      // padding-left: 100px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
     
-      .button1{
-        border: 2px solid skyblue;
-        background-color: rgb(242,242,242);
-        color: skyblue;
-        font-size: 40px;
-      }
-    }
+//     margin-bottom: 60px;
+//     .topTitle{
+//       text-align: center;
+//       font-size: 14px;
+//       line-height: 45px;
+//       background-color: #fff;
+//       width: 100%;
+//       border-bottom: 1px solid rgb(209, 209, 209);
+//       position: relative;
+//     }
+//     .input{
+//       width: 100%;
+//       height: 300px;
+//       word-break:break-all;
+//       border: none;
+//       padding-left: 10px;
+//     }
+//     .button{
+//       width: 100%;
+//       height: 80px;
+//       // padding-left: 100px;
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: start;
+//       align-items: center;
+    
+//       .button1{
+//         width: 60px;
+//         height: 60px;
+//         border: 2.5px solid skyblue;
+//         background-color: rgb(242,242,242);
+//         color: skyblue;
+//         font-size: 40px;
+//         margin-top: 40px;
+//         border-radius: 5px;
+//         margin-left: 20px;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+        
+//       }
+//     }
 
-    .button3{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .button2{
-        margin-top: 70px;
-      }
-    }
+//     .button3{
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       .button2{
+//         margin-top: 70px;
+//         width: 70px;
+//         height: 35px;
+//         // margin-top: 180px;
+//         background:no-repeat 0 0 scroll #fff;
+//         border:1px solid #888;
+//         // outline:medium;
+//         position: fixed;
+//         z-index: 180px;
+//         bottom: 100px;
+//         border-radius: 5px;
+//       }
+//     }
      
     
-  }
+//   }
    
+
+.nav-title{
+  text-align: center;
+  font-size: 16px;
+  line-height: 40px;
+  border-bottom: 1px solid #ccc;
+}
