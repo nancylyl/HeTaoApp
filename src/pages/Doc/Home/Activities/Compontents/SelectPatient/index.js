@@ -78,6 +78,7 @@ export default class index extends PureComponent {
     return <Drawer
       visible={visible}
       title='提醒人'
+      okText="完成"
       onClose={this.onClose}
       onOk={onOk}
     >

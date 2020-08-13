@@ -5,6 +5,7 @@ import { values } from 'mobx';
 // import { Link } from 'react-router-dom';
 // import { values } from 'mobx';
 // const prompt = Modal.prompt;
+import Axios from '../../../util/axios'
 const RadioItem = Radio.RadioItem;
 const alert = Modal.alert;
 
@@ -16,6 +17,9 @@ export default class index extends Component {
     isRecord: false,//本日是否发作
     onsetCount: 1,//发作次数
     lastonsetCount: 1,//上次发作次数
+    time: 0,
+    badType: [],
+    data: ['1', '2', '3'],
     activityModel: [],
     activityList: [
       {
@@ -48,7 +52,8 @@ export default class index extends Component {
         state: 2,
         stateName: '已报名'
       }
-    ]
+    ],
+    carouselList: []//轮播图
   };
   showModal = (key, item) => (e) => {
     const state = item.state;
@@ -76,7 +81,7 @@ export default class index extends Component {
       [key]: false,
     });
   }
-  onRecord(type) {
+  onRecord (type) {
     console.log(type);
 
     if (type == 1) {
@@ -105,8 +110,60 @@ export default class index extends Component {
   onChangeStepper = (val) => {
     this.setState({ onsetCount: val });
   }
+
+  componentWillMount () {
+    this.init();
+  }
+
+  init () {
+    //发作次数
+    this.getCheckTime()
+    //轮播图
+    this.getCarouselList()
+
+  }
+  getCheckTime () {
+    Axios({
+      isDev: 1,
+      url: "/patient/checkTime?P_ID=1",
+    })
+      .then((res) => {
+        // console.log(res);
+        let time = res.data.time
+        this.setState({
+          isRecord: time > 0 ? true : false,
+          onsetCount: time
+        })
+        if (time > 0) {
+          this.setState({
+            lastonsetCount: time
+          })
+        }
+
+      })
+      .finally(() => {
+      })
+
+  }
+  getCarouselList () {
+    Axios({
+      isDev: 1,
+      url: "/bannerManage/showOff",
+    })
+      .then((res) => {
+        console.log(res);
+        this.setState({
+          carouselList: res.data.data
+        })
+
+      })
+      .finally(() => {
+      })
+
+  }
+
   //初始化
-  renderDate() {
+  renderDate () {
     const { activityList } = this.state
 
     return activityList.map((item) => {
@@ -133,31 +190,61 @@ export default class index extends Component {
 
   onRecordClose = (key, flag) => () => {
     if (flag == 2) {
+      Axios({
+        isDev: 1,
+        url: "/patient/addTime?P_ID=1&time=" + this.state.onsetCount,
+      })
+        .then((res) => {
+          console.log(res);
+          this.setState({
+            lastonsetCount: this.state.onsetCount
+          })
+        })
+        .finally(() => {
+        })
+
       Toast.info("纪录成功");
+
     }
     this.setState({
       [key]: false,
     });
   }
-  render() {
-    const { activityList, activityModel, isRecord, isRecordModal, onsetCount, lastonsetCount } = this.state
+  render () {
+    const { activityList, activityModel, isRecord, isRecordModal, onsetCount, lastonsetCount, carouselList } = this.state
+    console.log(carouselList);
     return (
       <div className={styles["big-box"]} >
         <div className={styles.topTitle}>核桃仁</div>
-        <Carousel autoplay>
-          <div className={styles.banner}>
-            <h3 >1</h3>
-          </div>
-          <div className={styles.banner}>
-            <h3>2</h3>
-          </div>
-          <div className={styles.banner}>
-            <h3>3</h3>
-          </div>
-          <div className={styles.banner}>
-            <h3 >4</h3>
-          </div>
+
+        {carouselList.length > 0 && <Carousel
+          autoplay
+          infinite
+        >
+          {
+            carouselList.map((val, index) => (
+              <a
+                key={index}
+                href="http://www.alipay.com"
+                style={{ display: 'inline-block', width: '100%', height: "40vw" }}
+              >
+                <img
+                  src={val.imgurl}
+                  alt=""
+                  style={{ width: '100%', verticalAlign: 'top' }}
+                  onLoad={() => {
+                    // fire window resize event to change height
+                    window.dispatchEvent(new Event('resize'));
+                    this.setState({ imgHeight: 'auto' });
+                  }}
+                />
+              </a>
+            ))
+          }
         </Carousel>
+        }
+
+
         <div className={styles.quick}>
           <Button icon={<i className={['iconfont  icon-zhaoxiangji']} />} className={styles.bottom} onClick={() => { this.onRecord(1) }} >拍照记录</Button>
           <Button icon={<i className={['iconfont icon-50']} />} className={styles.bottom} onClick={() => { this.onRecord(3) }} >纪录发作次数</Button>

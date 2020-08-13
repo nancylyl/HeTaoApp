@@ -14,7 +14,7 @@ class DiscussDetails extends Component {
         }
     }
     UNSAFE_componentWillMount() {
-        console.log(this.props.location.state.data);
+        // console.log(this.props.location.state.data);
         this.setState({
             details: this.props.location.state.data
         })
@@ -50,10 +50,10 @@ class DiscussDetails extends Component {
                         <p>会议时间<span className={styles.right}>{moment(details.discussStart).format('YY/MM/DD HH:mm')}</span></p>
                         <p>参会人数<span className={styles.right}>{details.joinNumber}人</span></p>
                         {this.chargeType(details.chargeType)}
-                        <p>探讨患者信息<span className={styles.right}>{details.name.charAt(0)}***</span></p>
+                        <p>探讨患者信息<span className={styles.right}>{details.name!=null?details.name.charAt(0)+'***':'无'}</span></p>
                         <div className={styles.explain}>
                             <p>探讨说明</p>
-                            <div>{details.discussExplain}</div>
+                            <div>{details.explain}</div>
                         </div>
                     </div>
                 </div>

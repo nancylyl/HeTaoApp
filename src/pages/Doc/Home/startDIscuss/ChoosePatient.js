@@ -18,7 +18,7 @@ export default class ChoosePatient extends Component {
         }
     }
     componentDidMount () {
-        console.log(this.props);
+        // console.log(this.props);
         this.init()
     }    
     init () {
@@ -28,7 +28,7 @@ export default class ChoosePatient extends Component {
         })
         .then((res) => {
             const data = res.data;
-            console.log(data);
+            // console.log(data);
             if (data.status = "0000") {
             this.setState({
                 data: data.data.patients,
@@ -95,14 +95,15 @@ export default class ChoosePatient extends Component {
                 onClose={this.onClose}
                 onOk={this.onSearch}
                 okText = '搜索'
-                >
-                <div className={styles.patientBox}>
+            >
+                <div className={styles.patientList}>
+                    <div className={styles.patientBox}>
                     {loaded && this.getPatList()}
+                    </div>
+                    <div className={styles.btns}>
+                        {this.okBtn()}
+                    </div> 
                 </div>
-                <div className={styles.btns}>
-                    {this.okBtn()}
-                </div> 
-                
             </Drawer>
         )
     }

@@ -63,7 +63,7 @@ export default class index extends PureComponent {
           <StickyContainer>
             <Tabs tabs={tabs}
               initialPage={'1'}
-            > 
+            >
               <RecordDetail uId={uId} />
               <OnsetDetail uId={uId} />
               <AdverseDetail uId={uId} />

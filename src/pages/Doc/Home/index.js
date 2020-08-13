@@ -2,27 +2,15 @@ import React, { Component } from 'react'
 import styles from './home.module.scss'
 import { Carousel, Button } from 'antd-mobile';
 import Map from './Map'
-
+import Axios from 'util/axios'
+import Api from 'api/index'
 
 export default class index extends Component {
   constructor(props) {
     
     super(props);
     this.state = {
-      data: [
-        {
-          title: 1,
-        },
-        {
-          title: 2,
-        },
-        {
-          title: 3,
-        },
-        {
-          title: 4,
-        }
-      ],
+      carouselList: [],//轮播图
       docInfo: {
         name: "张三",
         avatar: '3.png',
@@ -34,41 +22,60 @@ export default class index extends Component {
       }
     }
   }
+  getCarouselList () {
+    Axios({
+      isDev: 1,
+      url: "/bannerManage/showOff",
+    })
+      .then((res) => {
+        console.log(res);
+        this.setState({
+          carouselList: res.data.data
+        })
 
+      })
+      .finally(() => {
+      })
+
+  }
+
+componentDidMount() {
+  //轮播图
+  this.getCarouselList()
+}
   render() {
-    const {docInfo} = this.state
+    const {docInfo,carouselList} = this.state
     return (
       <div className={styles.bigBox}>
         <div className={styles.topTitle}>核桃仁</div>
         {/* =========================banner轮播图======================== */}
-        <Carousel
+        {carouselList.length > 0 && <Carousel
           autoplay
-          // infinite
-          // beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-          // afterChange={index => console.log('slide to', index)}
+          infinite
           className={styles.banner}
         >
-          {this.state.data.map(val => (
-            <a
-              key={val}
-              href=""
-              style={{ display: 'inline-block', width: '100%', height: '40vw' }}
-              className={styles.img}
-            >
-              {val.title}
-              <img
-                src=''
-                alt=""
-                style={{ width: '100%', verticalAlign: 'top' }}
-                onLoad={() => {
-                  // fire window resize event to change height
-                  window.dispatchEvent(new Event('resize'));
-                  this.setState({ imgHeight: 'auto' });
-                }}
-              />
-            </a>
-          ))}
+          {
+            carouselList.map((val, index) => (
+              <a
+                key={index}
+                href="http://www.alipay.com"
+                style={{ display: 'inline-block', width: '100%', height: "40vw" }}
+              >
+                <img
+                  src={val.imgurl}
+                  alt=""
+                  style={{ width: '100%', verticalAlign: 'top' }}
+                  onLoad={() => {
+                    // fire window resize event to change height
+                    window.dispatchEvent(new Event('resize'));
+                    this.setState({ imgHeight: 'auto' });
+                  }}
+                />
+              </a>
+            ))
+          }
         </Carousel>
+        }
         <div className={styles.quick}>
           <Button href='/doc/discuss' className={styles.bottom} icon={<i className={['iconfont icon-jiankangguanli']} />}>病历探讨</Button>
           <Button href='/doc/activities' className={styles.bottom} icon={<i className={['iconfont icon-liwu']} />}>诊疗活动</Button>

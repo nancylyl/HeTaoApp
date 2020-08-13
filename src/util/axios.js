@@ -1,11 +1,9 @@
 import Axios from 'axios'
 var baseURL = ''
-export default function axios(config) {
+export default function axios (config) {
   if (config.isDev != undefined && config.isDev == 1) {
-    // baseURL = "http://118.190.245.9:8080/htr"
-    baseURL = "http://172.16.2.12:8080/htr" 
-    // baseURL = "http://172.16.2.75:8080/htr" //病历探讨
- 
+    baseURL = "http://118.190.245.9:8080/htr"
+    // baseURL = "http://172.16.2.75:8080/htr"
   }
   else {
     baseURL = "https://www.fastmock.site/mock/63908e19f8683a898abc0a03e1010b59"
@@ -45,7 +43,7 @@ export default function axios(config) {
   return instance(config)
 }
 
-window.loading = function loading(loading = true) {
+window.loading = function loading (loading = true) {
   let $loading = document.querySelector('#loading');
   if (!$loading && loading) {
     $loading = document.createElement('div');

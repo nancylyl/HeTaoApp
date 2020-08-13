@@ -127,7 +127,7 @@ class Map extends PureComponent {
         //鼠标放地图的某一块，显示的提示框
         formatter(params, ticket, callback) {
           //    console.log(params)
-          return `${params.name}<br/>我的患者：${params.data.InValue}人`
+          return `${params.name}<br/>我的患者：${params.data.invalue}人`
         },
         backgroundColor: '#ff7f50', // 提示标签背景颜色
         textStyle: { color: '#fff' } // 提示标签字体颜色

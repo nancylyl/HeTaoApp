@@ -60,10 +60,88 @@
   div{
     border-right: 1px solid rgba(228, 228, 228, 1);
   }
+  .AccBox-11{
+    border-right:0;
+  }
 }
 .AccBox-2{
   text-align: left;
   color: #999999;
   margin-top: 20px;
   margin-left: 20px;
+}
+.cash{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #999999;
+  p{
+    width: 25%;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #c9c9c9;
+    margin-top: 50px;
+    line-height: 40px;
+  }
+}
+#choose{
+  margin-top: 40px;
+  margin-left: 10px;
+}
+.box-down{
+  margin-top: 20px;
+  margin-left: 5px;
+  .box-down-f{
+    margin-top: 20px;
+    margin-left: 10px;
+    .box-down-s{
+      img{
+        width: 30px;
+        height: 30px;
+      }
+      span{
+        text-align: center;
+        height: 20px;
+        width: 60px;
+        display: inline-block;
+      }
+    }
+    .radio{
+      position: absolute;
+      right: 10%;
+      top: 73%;
+      input{
+        margin-top: 15px;
+      }
+    }
+  }
+}
+.box-down-t{
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 50px auto;
+  border:1px solid #999999;
+}
+.detail-div{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #999999;
+  span{
+    position: absolute;
+    right: 10px;
+  }
+}
+.result-example .spe {
+  width: 60px;
+  height: 60px;
+}
+.sub-title {
+  color: #888;
+  font-size: 14px;
+  padding: 30px 0 18px 0;
+  margin-left: 15px;
 }
