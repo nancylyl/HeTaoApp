@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styles from './style.module.scss'
-import { Carousel, Button, WhiteSpace, Card, Badge, List,NavBar, Icon } from 'antd-mobile';
+import { Carousel, Button, WhiteSpace, Card, Badge, List, NavBar, Icon } from 'antd-mobile';
 import echarts from 'echarts';
 import ReactEcharts from 'echarts-for-react'
 import Api from 'api/index'
@@ -107,24 +107,24 @@ export default class index extends Component {
     const { data, isShowImgVisible } = this.state
     return (
       <div className={styles["big-box"]} >
-        <NavBar className={styles["nav"]}
+        <NavBar key="1" className={styles["nav"]}
           mode="light"
           rightContent={[
-            <a className={styles["a-jilu"]} href="" onClick={
+            <a className={styles["a-jilu"]} href="" key={1} onClick={
               () => {
                 this.props.history.push("/patient/recordLog/index")
               }}>记录就诊</a>
-            ]}
-          >病历本</NavBar>
-        <NavBar
-            mode="light"
-            leftContent={[
-              <span>病历资料</span>
-            ]}
-            rightContent={[
-              <span  className={styles["rightspan"]}>信息未完善</span>
-            ]}
-          ></NavBar>
+          ]}
+        >病历本</NavBar>
+        <NavBar key="2"
+          mode="light"
+          leftContent={[
+            <span key={1} >病历资料</span>
+          ]}
+          rightContent={[
+            <span key={1} className={styles["rightspan"]}>信息未完善</span>
+          ]}
+        ></NavBar>
         <div className={styles["my-doctor"]}>
           <div className={styles["header"]}>
             <img src={require('../../../assets/images/3.png')} className={styles["doctor-head"]} />
@@ -145,30 +145,30 @@ export default class index extends Component {
             确诊时间：2012.11.12
           </div>
           <div>
-          <NavBar
-            className={styles["nav1"]}
-            mode="light"
-            rightContent={[
-              <a className={styles["righta"]} onClick={() => {
-                this.props.history.push(`/patient/medicalRecord/1`)
-              }}>查看完整病历</a>
-            ]}
-          ></NavBar>
-          <NavBar
-            mode="light"
-            leftContent={[
-              <span>发作频次</span>
-            ]}
-          ></NavBar>
-        <div className={styles.echarts}>
-          {
-            this.state.loaded && <ReactEcharts
-              option={this.getOption()}
-              style={{ height: '250px', width: '100%' }}
-              className='react_for_echarts' />
-          }
-        </div>
-          
+            <NavBar key={1}
+              className={styles["nav1"]}
+              mode="light"
+              rightContent={[
+                <a key={1} className={styles["righta"]} onClick={() => {
+                  this.props.history.push(`/patient/medicalRecord/1`)
+                }}>查看完整病历</a>
+              ]}
+            ></NavBar>
+            <NavBar key={2}
+              mode="light"
+              leftContent={[
+                <span key={1}>发作频次</span>
+              ]}
+            ></NavBar>
+            <div className={styles.echarts}>
+              {
+                this.state.loaded && <ReactEcharts
+                  option={this.getOption()}
+                  style={{ height: '250px', width: '100%' }}
+                  className='react_for_echarts' />
+              }
+            </div>
+
           </div>
         </div>
       </div>

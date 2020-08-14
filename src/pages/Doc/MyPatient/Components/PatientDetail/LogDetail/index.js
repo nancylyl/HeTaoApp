@@ -62,9 +62,9 @@ export default class index extends PureComponent {
                 <Card.Body>
                   <div>{item.content}</div>
                   {
-                    item.images.length > 0 && item.images.map((image) => {
+                    item.images.length > 0 && item.images.map((image, index) => {
                       return (
-                        <a key={image.id} onClick={
+                        <a key={index} onClick={
                           () => {
                             this.setState({
                               isShowImgVisible: true,
